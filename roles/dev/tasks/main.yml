@@ -1,0 +1,39 @@
+---
+- name: Tap required homebrew formulas
+  homebrew_tap: tap={{ item }} state=present
+  with_items:
+    - homebrew/dupes
+    - homebrew/versions
+    #- "homebrew/homebrew-php"
+
+- name: Install packages from Homebrew
+  homebrew: name={{ item }} state=latest update_homebrew=yes
+  with_items:
+    - php56
+    - speedtest_cli
+    - httpie
+    - exiftool
+    - git-extras
+    - ngrok
+    - pandoc
+    - tree
+
+- name: Install Gem packages
+  gem: name={{ item }} state=present
+  with_items:
+    - jekyll
+    - t
+
+- name: Install NPM packages
+  npm: name={{ item }} state=present global=yes
+  with_items:
+    - bower
+    - gulp
+    - image-assets
+    - jspm
+    - pm2
+
+# - name: Install Brew Cask packages
+#   homebrew_cask: name={{ item }} state=present
+#   with_items:
+#     - alfred
