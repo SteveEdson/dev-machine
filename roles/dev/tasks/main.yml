@@ -35,6 +35,8 @@
     - pm2
     - grunt-cli
     - npm-check-updates
+    - babel@^5.0.0
+  sudo: yes
 
 # - name: Install Brew Cask packages
 #   homebrew_cask: name={{ item }} state=present
