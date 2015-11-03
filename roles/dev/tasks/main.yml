@@ -7,8 +7,9 @@
     #- "homebrew/homebrew-php"
 
 - name: Install packages from Homebrew
-  homebrew: name={{ item }} state=latest update_homebrew=yes
+  homebrew: name={{ item }} state=present update_homebrew=yes
   with_items:
+    - caskroom/cask/brew-cask
     - php56
     - speedtest_cli
     - httpie
@@ -32,8 +33,12 @@
     - image-assets
     - jspm
     - pm2
+    - grunt-cli
+    - npm-check-updates
 
 # - name: Install Brew Cask packages
 #   homebrew_cask: name={{ item }} state=present
 #   with_items:
 #     - alfred
+#     - virtualbox
+#     - vagrant
