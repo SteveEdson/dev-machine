@@ -4,7 +4,7 @@
   with_items:
     - homebrew/dupes
     - homebrew/versions
-    #- "homebrew/homebrew-php"
+    # - "homebrew/homebrew-php"
 
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes
@@ -18,6 +18,8 @@
     - ngrok
     - pandoc
     - tree
+    - composer
+    - node
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
@@ -40,15 +42,16 @@
     - babel@^5.0.0
   sudo: yes
 
-# - name: Install Brew Cask packages
-#   homebrew_cask: name={{ item }} state=present
-#   with_items:
-#     - alfred
-#     - virtualbox
-#     - vagrant
-#     - dash
-#     - macdown
-#     - firefox
-#     - atom
-#     - iterm
-#     - imageoptim
+- name: Install Brew Cask packages
+  ignore_errors: yes
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - alfred
+    - virtualbox
+    - vagrant
+    - dash
+    - macdown
+    - firefox
+    - atom
+    - iterm
+    - imageoptim
