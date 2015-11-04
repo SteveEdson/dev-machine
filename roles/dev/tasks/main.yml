@@ -39,6 +39,7 @@
     - pm2
     - grunt-cli
     - npm-check-updates
+    - yo
     - babel@^5.0.0
   sudo: yes
 
