@@ -5,4 +5,4 @@ which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.co
 which ansible-playbook > /dev/null || brew install ansible
 
 # Provision machine with ansible
-ansible-playbook -i "localhost," -c local -v playbook.yml
+ansible-playbook -i "localhost," -c local --ask-become-pass playbook.yml
