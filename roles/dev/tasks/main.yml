@@ -4,7 +4,7 @@
   with_items:
     - homebrew/dupes
     - homebrew/versions
-    # - "homebrew/homebrew-php"
+    - homebrew/php
 
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes
