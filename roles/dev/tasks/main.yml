@@ -4,7 +4,7 @@
   with_items:
     - homebrew/dupes
     - homebrew/versions
-    - homebrew/php
+    - josegonzalez/homebrew-php
 
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes
@@ -64,3 +64,4 @@
     - qlmarkdown
     - quicklook-csv
     - betterzipql
+    - dropbox
