@@ -28,6 +28,7 @@
     - t
     - sass
     - compass
+    - susy
 
 - name: Install NPM packages
   npm: name={{ item }} state=present global=yes
