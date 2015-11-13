@@ -29,6 +29,7 @@
     - sass
     - compass
     - susy
+    - breakpoint
 
 - name: Install NPM packages
   npm: name={{ item }} state=present global=yes
@@ -45,6 +46,7 @@
     - plato
     - webpack
     - mocha
+    - susy
   sudo: yes
 
 - name: Install Brew Cask packages
