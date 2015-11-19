@@ -68,4 +68,9 @@
     - quicklook-csv
     - betterzipql
     - dropbox
+
+- name: Remove Brew Cask packages
+  ignore_errors: yes
+  homebrew_cask: name={{ item }} state=absent
+  with_items:
     - nanobox
