@@ -68,6 +68,7 @@
     - quicklook-csv
     - betterzipql
     - dropbox
+    - marked
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
