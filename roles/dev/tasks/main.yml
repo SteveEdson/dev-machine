@@ -20,6 +20,7 @@
     - tree
     - composer
     - node
+    - q
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
