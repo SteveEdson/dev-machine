@@ -80,3 +80,8 @@
   homebrew_cask: name={{ item }} state=absent
   with_items:
     - nanobox
+
+- name: Install PIP packages
+  pip: name={{ item }} state=present
+  with_items:
+    - tldr
