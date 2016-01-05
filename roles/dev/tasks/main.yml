@@ -74,6 +74,7 @@
     - licecap
     - dockertoolbox
     - caret
+    - bitbar
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
