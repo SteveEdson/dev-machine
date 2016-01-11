@@ -10,7 +10,7 @@
   homebrew: name={{ item }} state=present update_homebrew=yes
   with_items:
     - caskroom/cask/brew-cask
-    - php56
+    - php70
     - speedtest_cli
     - httpie
     - exiftool
