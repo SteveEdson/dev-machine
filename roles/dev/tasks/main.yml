@@ -21,6 +21,7 @@
     - composer
     - node
     - q
+    - git-cal
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
