@@ -49,7 +49,7 @@
     - webpack
     - mocha
     - susy
-  sudo: yes
+  become: yes
 
 - name: Install Brew Cask packages
   ignore_errors: yes
