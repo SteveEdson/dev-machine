@@ -50,6 +50,7 @@
     - webpack
     - mocha
     - susy
+    - nativefier
   become: yes
 
 - name: Install Brew Cask packages
