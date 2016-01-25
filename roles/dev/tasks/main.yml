@@ -22,6 +22,7 @@
     - node
     - q
     - git-cal
+    - aria2
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
