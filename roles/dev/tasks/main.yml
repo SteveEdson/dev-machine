@@ -89,3 +89,11 @@
   with_items:
     - tldr
     - classifier
+
+- name: Install global Composer packages
+  composer: 
+    command: "require" 
+    working_dir: "{{ ansible_env.HOME}}/.composer"
+    arguments: "{{ item }}"
+  with_items:
+    - "laravel/installer"
