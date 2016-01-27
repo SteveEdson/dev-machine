@@ -52,6 +52,7 @@
     - mocha
     - susy
     - nativefier
+    - lite-server
   become: yes
 
 - name: Install Brew Cask packages
