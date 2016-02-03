@@ -1,6 +1,6 @@
 # dev-machine
 
-For more information, see my [blog post](https://steveedson.co.uk/ansible/dev-machine)
+For more information, see my [blog post](https://steveedson.co.uk/ansible/dev-machine).
 
 Runs ansible, provisioning local machine with dev tools and setup.
 
