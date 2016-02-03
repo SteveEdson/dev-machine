@@ -1,12 +1,12 @@
 # dev-machine
 
-Full description coming soon.
+For more information, see my [blog post](https://steveedson.co.uk/ansible/dev-machine)
 
 Runs ansible, provisioning local machine with dev tools and setup.
 
 ## Requires
 
-Currently, Ansible. This will be automatically installed in future.
+Currently, Ansible and Brew. These will be automatically installed if missing.
 
 ## Usage
 
