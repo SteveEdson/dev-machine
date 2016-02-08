@@ -1,6 +1,6 @@
 ---
 - name: Create system aliases
-  lineinfile: dest=/Users/stevee/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
+  lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
   with_dict: "{{aliases}}"
   vars:
     aliases:
