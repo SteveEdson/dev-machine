@@ -1,4 +1,13 @@
 ---
+- name: Create system aliases
+  lineinfile: dest=/Users/stevee/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
+  with_dict: "{{aliases}}"
+  vars:
+    aliases:
+      gs: git status
+      gp: git pull
+      bu: brew update
+
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
   with_items:
