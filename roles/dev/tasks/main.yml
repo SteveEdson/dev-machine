@@ -13,6 +13,10 @@
   command: "git config --global {{ item }}"
   with_items:
     - 'core.pager "diff-so-fancy | less --tabs=1,5 -R"'
+    - 'color.diff-highlight.oldNormal "red bold"'
+    - 'color.diff-highlight.oldHighlight "red bold 52"'
+    - 'color.diff-highlight.newNormal "green bold"'
+    - 'color.diff-highlight.newHighlight "green bold 22"'
 
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
