@@ -73,7 +73,7 @@
 
 - name: Install Brew Cask packages
   ignore_errors: yes
-  homebrew_cask: name={{ item }} state=present
+  homebrew_cask: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
   with_items:
     - alfred
     - virtualbox
