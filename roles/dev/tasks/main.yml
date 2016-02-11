@@ -9,6 +9,11 @@
       bu: brew update
       art: php artisan
 
+- name: Create Git configs
+  command: "git config --global {{ item }}"
+  with_items:
+    - 'core.pager "diff-so-fancy | less --tabs=1,5 -R"'
+
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
   with_items:
@@ -63,6 +68,7 @@
     - susy
     - nativefier
     - lite-server
+    - diff-so-fancy
   become: yes
 
 - name: Install Brew Cask packages
