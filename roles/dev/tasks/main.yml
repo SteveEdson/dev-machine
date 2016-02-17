@@ -74,6 +74,7 @@
     - nativefier
     - lite-server
     - diff-so-fancy
+    - vue-cli
   become: yes
 
 - name: Install Brew Cask packages
