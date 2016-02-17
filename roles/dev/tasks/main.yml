@@ -4,6 +4,7 @@
   with_dict: "{{aliases}}"
   vars:
     aliases:
+      gc: "git commit -m"
       gs: git status
       gp: git pull
       bu: brew update
