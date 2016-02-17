@@ -27,7 +27,7 @@
     - homebrew/php
 
 - name: Install packages from Homebrew
-  homebrew: name={{ item }} state=present update_homebrew=yes
+  homebrew: name={{ item }} state=present
   with_items:
     - caskroom/cask/brew-cask
     - php70
