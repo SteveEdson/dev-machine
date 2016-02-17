@@ -28,7 +28,7 @@
     - homebrew/php
 
 - name: Install packages from Homebrew
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
   with_items:
     - caskroom/cask/brew-cask
     - php70
@@ -44,6 +44,31 @@
     - q
     - git-cal
     - aria2
+
+- name: Install Brew Cask packages
+  ignore_errors: yes
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - alfred
+    - virtualbox
+    - vagrant
+    - dash
+    - macdown
+    - firefox
+    - atom
+    - iterm2
+    - imageoptim
+    - sequel-pro
+    - qlstephen
+    - qlmarkdown
+    - quicklook-csv
+    - betterzipql
+    - dropbox
+    - marked
+    - licecap
+    - dockertoolbox
+    - caret
+    - bitbar
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
@@ -77,31 +102,6 @@
     - diff-so-fancy
     - vue-cli
   become: yes
-
-- name: Install Brew Cask packages
-  ignore_errors: yes
-  homebrew_cask: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
-  with_items:
-    - alfred
-    - virtualbox
-    - vagrant
-    - dash
-    - macdown
-    - firefox
-    - atom
-    - iterm2
-    - imageoptim
-    - sequel-pro
-    - qlstephen
-    - qlmarkdown
-    - quicklook-csv
-    - betterzipql
-    - dropbox
-    - marked
-    - licecap
-    - dockertoolbox
-    - caret
-    - bitbar
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
