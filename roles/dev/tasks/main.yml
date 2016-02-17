@@ -8,6 +8,7 @@
       gp: git pull
       bu: brew update
       art: php artisan
+      homestead: 'function __homestead() { (cd ~/Users/stevee/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
 - name: Create Git configs
   command: "git config --global {{ item }}"
@@ -119,3 +120,4 @@
     arguments: "{{ item }}"
   with_items:
     - "laravel/installer"
+    - "laravel/homestead"
