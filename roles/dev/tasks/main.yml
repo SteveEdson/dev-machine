@@ -32,6 +32,7 @@
   with_items:
     - caskroom/cask/brew-cask
     - php70
+    - php70-xdebug
     - speedtest_cli
     - httpie
     - exiftool
@@ -124,4 +125,5 @@
   with_items:
     - "laravel/installer"
     - "laravel/homestead"
-    - "getkirby/cli" 
+    - "getkirby/cli"
+    - "humbug/humbug"
