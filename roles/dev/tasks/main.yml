@@ -115,7 +115,7 @@
   pip: name={{ item }} state=present
   with_items:
     - tldr
-    - classifier
+    - proselint
 
 - name: Install global Composer packages
   composer: 
