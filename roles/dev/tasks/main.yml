@@ -33,6 +33,8 @@
     - caskroom/cask/brew-cask
     - php70
     - php70-xdebug
+    - phpcs
+    - phpmd
     - speedtest_cli
     - httpie
     - exiftool
