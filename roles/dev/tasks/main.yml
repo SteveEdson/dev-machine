@@ -32,6 +32,9 @@
   with_items:
     - caskroom/cask/brew-cask
     - php70
+    - php70-xdebug
+    - phpcs
+    - phpmd
     - speedtest_cli
     - httpie
     - exiftool
@@ -115,7 +118,7 @@
   pip: name={{ item }} state=present
   with_items:
     - tldr
-    - classifier
+    - proselint
 
 - name: Install global Composer packages
   composer: 
@@ -125,7 +128,9 @@
   with_items:
     - "laravel/installer"
     - "laravel/homestead"
-    - "getkirby/cli" 
+    - "getkirby/cli"
+    - "humbug/humbug"
+
 
 - name: Setup launch agents for services
   command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
