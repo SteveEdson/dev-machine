@@ -135,4 +135,5 @@
 - name: Setup launch agents for services
   command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
   with_items:
+    - mysql
     - beanstalkd
