@@ -33,7 +33,7 @@
     - caskroom/cask/brew-cask
     - php70
     - php70-xdebug
-    - phpcs
+    - php-code-sniffer
     - phpmd
     - speedtest_cli
     - httpie
