@@ -44,6 +44,7 @@
     - q
     - git-cal
     - aria2
+    - beanstalkd
 
 - name: Install Brew Cask packages
   ignore_errors: yes
@@ -125,3 +126,8 @@
     - "laravel/installer"
     - "laravel/homestead"
     - "getkirby/cli" 
+
+- name: Setup launch agents for services
+  command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+  with_items:
+    - beanstalkd
