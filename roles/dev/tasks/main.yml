@@ -107,6 +107,7 @@
     - diff-so-fancy
     - vue-cli
     - electron-prebuilt
+    - hotel
   become: yes
 
 - name: Remove Brew Cask packages
