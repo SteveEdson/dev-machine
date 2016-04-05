@@ -62,7 +62,6 @@
     - virtualbox
     - vagrant
     - dash
-    - macdown
     - firefox
     - atom
     - iterm2
@@ -75,7 +74,6 @@
     - dropbox
     - marked
     - licecap
-    - dockertoolbox
     - caret
     - bitbar
 
@@ -101,7 +99,7 @@
     - grunt-cli
     - npm-check-updates
     - yo
-    - babel@^5.0.0
+    - babel
     - plato
     - webpack
     - mocha
