@@ -19,6 +19,10 @@
     - 'color.diff-highlight.oldHighlight "red bold 52"'
     - 'color.diff-highlight.newNormal "green bold"'
     - 'color.diff-highlight.newHighlight "green bold 22"'
+    - 'alias.cod checkout development'
+    - 'alias.cos checkout staging'
+    - 'alias.md merge development'
+    - 'alias.last "log -1 HEAD"'
 
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
