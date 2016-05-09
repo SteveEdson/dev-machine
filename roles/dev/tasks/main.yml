@@ -123,6 +123,7 @@
   with_items:
     - tldr
     - proselint
+    - gitsome
 
 - name: Install global Composer packages
   composer: 
