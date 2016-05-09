@@ -135,6 +135,7 @@
     - "laravel/homestead"
     - "getkirby/cli"
     - "humbug/humbug"
+    - "laravel/valet"
 
 - name: Setup launch agents for services
   command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
