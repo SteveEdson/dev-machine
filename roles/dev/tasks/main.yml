@@ -34,7 +34,7 @@
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
   with_items:
-    - caskroom/cask/brew-cask
+    - caskroom/cask
     - php70
     - php70-xdebug
     - php-code-sniffer
