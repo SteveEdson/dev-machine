@@ -24,8 +24,11 @@
     - 'alias.md merge development'
     - 'alias.last "log -1 HEAD"'
 
-- osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
-- osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
+- name: Enable text selection within quicklook
+  osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
+
+- name: Show hidden files in finder by default
+  osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
 
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
