@@ -9,7 +9,7 @@
       gp: git pull
       bu: brew update
       art: php artisan
-      homestead: 'function __homestead() { (cd ~/Users/stevee/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
+      homestead: 'function __homestead() { (cd {{ ansible_env.HOME }}/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
 - name: Create Git configs
   command: "git config --global {{ item }}"
@@ -90,6 +90,7 @@
 - name: Install NPM packages
   npm: name={{ item }} state=present global=yes
   with_items:
+    - electron-prebuilt
     - bower
     - gulp
     - image-assets
@@ -104,10 +105,8 @@
     - mocha
     - susy
     - nativefier
-    - lite-server
     - diff-so-fancy
     - vue-cli
-    - electron-prebuilt
     - autochecker
   become: yes
 
