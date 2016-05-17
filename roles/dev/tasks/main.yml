@@ -122,6 +122,11 @@
     - tldr
     - proselint
     - gitsome
+    
+- name: Install PIP3 packages
+  pip: name={{ item }} state=present virtualenv_python=python3.5
+  with_items:
+    - gitsome
 
 - name: Install global Composer packages
   composer: 
