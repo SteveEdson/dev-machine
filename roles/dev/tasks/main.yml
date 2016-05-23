@@ -23,6 +23,11 @@
     - 'alias.cos checkout staging'
     - 'alias.md merge development'
     - 'alias.last "log -1 HEAD"'
+    - 'diff.tool diffmerge'
+    - 'difftool.diffmerge.cmd \'diffmerge "$LOCAL" "$REMOTE"\''
+    - 'merge.tool diffmerge'
+    - 'mergetool.diffmerge.cmd \'diffmerge --merge --result="$MERGED" "$LOCAL" "$(if test -f "$BASE"; then echo "$BASE"; else echo "$LOCAL"; fi)" "$REMOTE"\''
+    - 'mergetool.diffmerge.trustExitCode true'
 
 - name: Enable text selection within quicklook
   osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
@@ -69,6 +74,7 @@
     - git-cal
     - aria2
     - jq
+    - diff-so-fancy
     - beanstalkd
 
 - name: Install Brew Cask packages
@@ -92,6 +98,7 @@
     - marked
     - licecap
     - caret
+    - diffmerge
     - bitbar
 
 - name: Install Gem packages
