@@ -42,18 +42,6 @@
     - homebrew/versions
     - homebrew/php
 
-- name: Grafana Docker
-  docker:
-    name: grafana
-    image: grafana/grafana
-    state: reloaded
-    pull: always
-    ports:
-    - "3000:3000"
-    - "127.0.0.1:8081:9001/udp"
-    env:
-        SECRET_KEY: ssssh
-
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
   with_items:
