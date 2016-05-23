@@ -130,7 +130,6 @@
     - mocha
     - susy
     - nativefier
-    - diff-so-fancy
     - vue-cli
     - autochecker
   become: yes
