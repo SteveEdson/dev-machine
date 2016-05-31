@@ -96,6 +96,8 @@
     
 - name: Antigen bundles and zsh settings
   shell: "antigen bundle {{ item }}"
+  environment:
+    PATH: "{{ ansible_env.PATH }}"  
   args:
     executable: /bin/zsh
   with_items:
