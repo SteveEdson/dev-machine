@@ -98,6 +98,7 @@
   command: "antigen bundle {{ item }}"
   with_items:
     - 'zsh-users/zsh-syntax-highlighting'
+    - 'kennethreitz/autoenv'
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
