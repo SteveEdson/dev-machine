@@ -68,6 +68,7 @@
     - jq
     - diff-so-fancy
     - beanstalkd
+    - antigen
 
 - name: Install Brew Cask packages
   ignore_errors: yes
@@ -92,6 +93,11 @@
     - caret
     - diffmerge
     - bitbar
+    
+- name: Antigen bundles and zsh settings
+  command: "antigen bundle {{ item }}"
+  with_items:
+    - 'zsh-users/zsh-syntax-highlighting'
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
