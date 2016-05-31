@@ -139,6 +139,7 @@
     - proselint
 
 - name: Install global Composer packages
+  ignore_errors: yes
   composer: 
     command: "require" 
     working_dir: "{{ ansible_env.HOME }}/.composer"
