@@ -98,8 +98,6 @@
   shell: "antigen bundle {{ item }}"
   environment:
     PATH: "{{ ansible_env.PATH }}"  
-  args:
-    executable: /bin/zsh
   with_items:
     - 'zsh-users/zsh-syntax-highlighting'
     - 'kennethreitz/autoenv'
