@@ -37,7 +37,7 @@
 
 - name: Update brew hourly
   cron: name="brew autoupdate" special_time="hourly"
-        user="{{ansible_user_id}}" job="brew update"
+        user="{{ansible_user_id}}" job="/usr/local/bin/brew update"
 
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
