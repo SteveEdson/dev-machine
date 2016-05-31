@@ -95,10 +95,10 @@
     - bitbar
     
 - name: Antigen bundles and zsh settings
-  command: "antigen bundle {{ item }}"
+  shell: "antigen bundle {{ item }}"
   with_items:
-    - "'zsh-users/zsh-syntax-highlighting'"
-    - "'kennethreitz/autoenv'"
+    - 'zsh-users/zsh-syntax-highlighting'
+    - 'kennethreitz/autoenv'
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
