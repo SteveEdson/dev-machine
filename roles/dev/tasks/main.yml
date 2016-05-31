@@ -35,7 +35,7 @@
 - name: Show hidden files in finder by default
   osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
 
-- name: Update brew hourly
+- name: Update brew daily
   cron: name="brew autoupdate" special_time="daily"
         user="{{ansible_user_id}}" job="/usr/local/bin/brew update"
 
