@@ -96,6 +96,8 @@
     
 - name: Antigen bundles and zsh settings
   shell: "antigen bundle {{ item }}"
+  args:
+    executable: /bin/zsh
   with_items:
     - 'zsh-users/zsh-syntax-highlighting'
     - 'kennethreitz/autoenv'
