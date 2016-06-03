@@ -93,14 +93,6 @@
     - caret
     - diffmerge
     - bitbar
-    
-- name: Antigen bundles and zsh settings
-  shell: "antigen bundle {{ item }}"
-  environment:
-    PATH: "{{ ansible_env.PATH }}"  
-  with_items:
-    - 'zsh-users/zsh-syntax-highlighting'
-    - 'kennethreitz/autoenv'
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
@@ -140,6 +132,16 @@
   homebrew_cask: name={{ item }} state=absent
   with_items:
     - nanobox
+
+- name: Antigen bundles and zsh settings
+  shell: "source $(brew --prefix)/share/antigen.zsh && antigen bundle {{ item }}"
+  environment:
+    PATH: "{{ ansible_env.PATH }}"
+  args:
+      executable: /bin/zsh
+  with_items:
+    - 'zsh-users/zsh-syntax-highlighting'
+    - 'kennethreitz/autoenv'
 
 - name: Install PIP packages
   pip: name={{ item }} state=present
