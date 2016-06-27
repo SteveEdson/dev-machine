@@ -154,6 +154,7 @@
   composer: 
     command: "require" 
     working_dir: "{{ ansible_env.HOME }}/.composer"
+    no_dev: no
     arguments: "{{ item }}"
   with_items:
     - "laravel/installer"
