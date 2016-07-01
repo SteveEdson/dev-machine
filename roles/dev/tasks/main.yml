@@ -9,25 +9,37 @@
       gp: git pull
       bu: brew update
       art: php artisan
+      tweet: t tweet
+      tweets: t timeline -n 100
       homestead: 'function __homestead() { (cd {{ ansible_env.HOME }}/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
 - name: Create Git configs
   command: "git config --global {{ item }}"
   with_items:
+    - 'user.name "Steve Edson"'
     - 'core.pager "diff-so-fancy | less --tabs=1,5 -R"'
+    - 'color.branch "always"'
+    - 'color.diff "auto"'
+    - 'color.interactive "always"'
+    - 'color.status "always"'
+    - 'color.ui "always"'
     - 'color.diff-highlight.oldNormal "red bold"'
     - 'color.diff-highlight.oldHighlight "red bold 52"'
     - 'color.diff-highlight.newNormal "green bold"'
     - 'color.diff-highlight.newHighlight "green bold 22"'
+    - 'core.autocrlf "input"'
+    - 'core.whitespace "trailing-space,space-before-tab,cr-at-eol"'
     - 'alias.cod checkout development'
     - 'alias.cos checkout staging'
     - 'alias.md merge development'
     - 'alias.last "log -1 HEAD"'
     - 'diff.tool diffmerge'
     - "difftool.diffmerge.cmd 'diffmerge \"$LOCAL\" \"$REMOTE\"'"
+    - 'format.pretty "oneline"'
     - 'merge.tool diffmerge'
     - "mergetool.diffmerge.cmd 'diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"'"
     - 'mergetool.diffmerge.trustExitCode true'
+    - 'push.default "simple"'
 
 - name: Enable text selection within quicklook
   osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
