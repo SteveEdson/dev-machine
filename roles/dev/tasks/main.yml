@@ -69,7 +69,6 @@
     - httpie
     - exiftool
     - git-extras
-    - ngrok
     - pandoc
     - tree
     - composer
