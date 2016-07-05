@@ -89,6 +89,7 @@
     - virtualbox
     - vagrant
     - dash
+    - chrome
     - firefox
     - atom
     - iterm2
