@@ -164,6 +164,7 @@
   with_items:
     - tldr
     - proselint
+  become: yes
 
 - name: Install global Composer packages
   ignore_errors: yes
