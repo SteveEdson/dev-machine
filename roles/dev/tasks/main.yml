@@ -124,7 +124,6 @@
     - electron-prebuilt
     - bower
     - gulp
-    - image-assets
     - jspm
     - pm2
     - grunt-cli
