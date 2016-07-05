@@ -157,6 +157,7 @@
 
 - name: Make sure PIP is installed
   easy_install: name=pip state=latest
+  become: yes
 
 - name: Install PIP packages
   pip: name={{ item }} state=present
