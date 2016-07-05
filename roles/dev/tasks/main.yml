@@ -81,11 +81,13 @@
     - beanstalkd
     - antigen
     - autoenv
+    - android-sdk
 
 - name: Install Brew Cask packages
   ignore_errors: yes
   homebrew_cask: name={{ item }} state=present
   with_items:
+    - java
     - alfred
     - virtualbox
     - vagrant
