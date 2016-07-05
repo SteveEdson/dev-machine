@@ -105,6 +105,7 @@
     - caret
     - diffmerge
     - bitbar
+    - slack
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
