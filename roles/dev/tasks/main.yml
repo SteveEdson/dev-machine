@@ -155,6 +155,9 @@
     - 'zsh-users/zsh-syntax-highlighting'
     - 'kennethreitz/autoenv'
 
+- name: Make sure PIP is installed
+  easy_install: name=pip state=latest
+
 - name: Install PIP packages
   pip: name={{ item }} state=present
   with_items:
