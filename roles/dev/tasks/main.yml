@@ -59,6 +59,7 @@
   osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
 
 - name: Update brew daily
+  become: yes
   cron: name="brew autoupdate" special_time="daily"
         user="{{ansible_user_id}}" job="/usr/local/bin/brew update"
 
