@@ -135,6 +135,7 @@
 - name: Install Gem packages
   gem: name={{ item }} state=present
   with_items:
+    - bundler
     - jekyll
     - t
     - sass
