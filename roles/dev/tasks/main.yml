@@ -163,6 +163,8 @@
     - nativefier
     - vue-cli
     - autochecker
+    - psi
+    - a11y
   become: yes
 
 - name: Remove Brew Cask packages
