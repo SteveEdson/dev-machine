@@ -131,6 +131,8 @@
     - "antigen bundle kennethreitz/autoenv"
     - "antigen apply"
     - "export EDITOR=nano"
+    - "export PATH=$PATH:~/.composer/vendor/bin"
+
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
