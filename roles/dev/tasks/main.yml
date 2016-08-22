@@ -127,6 +127,7 @@
     - diffmerge
     - bitbar
     - slack
+    - disk-inventory-x
 
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
