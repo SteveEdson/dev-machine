@@ -61,12 +61,13 @@
 - name: Update brew daily
   become: yes
   cron: name="brew autoupdate" special_time="daily"
-        user="{{ansible_user_id}}" job="/usr/local/bin/brew update"
+        user="steveedson" job="/usr/local/bin/brew update"
 
 - name: Run this Playbook daily
   become: yes
+  become_user: root
   cron: name="Run Ansible playbook" special_time="daily"
-        user={{ansible_user_id}} job=".{{ playbook_dir }}/ansible.sh"
+        user="root" job="cd {{ playbook_dir }} && ./ansible.sh"
 
 - name: Tap required homebrew formulas
   homebrew_tap: tap={{ item }} state=present
