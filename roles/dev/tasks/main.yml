@@ -44,6 +44,7 @@
     - 'alias.cos checkout staging'
     - 'alias.md merge development'
     - 'alias.last "log -1 HEAD"'
+    - "alias.headf log --graph --pretty=tformat:'%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset' --abbrev-commit --decorate --parents --date=short -n32"
     - 'diff.tool diffmerge'
     - "difftool.diffmerge.cmd 'diffmerge \"$LOCAL\" \"$REMOTE\"'"
     - 'format.pretty "oneline"'
