@@ -40,9 +40,9 @@
     - 'color.diff-highlight.newHighlight "green bold 22"'
     - 'core.autocrlf "input"'
     - 'core.whitespace "trailing-space,space-before-tab,cr-at-eol"'
-    - 'alias.cod checkout development'
-    - 'alias.cos checkout staging'
-    - 'alias.md merge development'
+    - 'alias.cod "checkout development"'
+    - 'alias.cos "checkout staging"'
+    - 'alias.md "merge development"'
     - 'alias.last "log -1 HEAD"'
     - "alias.headf \"log --graph --pretty=tformat:'%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset' --abbrev-commit --decorate --parents --date=short -n32\""
     - 'diff.tool diffmerge'
