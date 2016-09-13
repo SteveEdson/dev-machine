@@ -9,6 +9,8 @@
       gp: git pull
       bu: brew update
       art: php artisan
+      derpal: drupal
+      derp: drupal
       tweet: t tweet
       tweets: t timeline -n 100
       homestead: 'function __homestead() { (cd {{ ansible_env.HOME }}/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
