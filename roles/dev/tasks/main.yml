@@ -27,34 +27,34 @@
     - "install: --no-rdoc --no-ri"
 
 - name: Create Git configs
-  command: "git config --global {{ item }}"
+  git_config: scope=global name={{ item.name }} value={{ item.value }}
   with_items:
-    - 'user.name "Steve Edson"'
-    - 'core.pager "diff-so-fancy | less --tabs=1,5 -R"'
-    - 'color.branch "always"'
-    - 'color.diff "auto"'
-    - 'color.interactive "always"'
-    - 'color.status "always"'
-    - 'color.ui "always"'
-    - 'color.diff-highlight.oldNormal "red bold"'
-    - 'color.diff-highlight.oldHighlight "red bold 52"'
-    - 'color.diff-highlight.newNormal "green bold"'
-    - 'color.diff-highlight.newHighlight "green bold 22"'
-    - 'core.autocrlf "input"'
-    - 'core.whitespace "trailing-space,space-before-tab,cr-at-eol"'
-    - 'alias.cod "checkout development"'
-    - 'alias.cos "checkout staging"'
-    - 'alias.cop "checkout production"'
-    - 'alias.md "merge development"'
-    - 'alias.last "log -1 HEAD"'
-    - "alias.headf \"log --graph --pretty=tformat:'%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset' --abbrev-commit --decorate --parents --date=short -n32\""
-    - 'diff.tool diffmerge'
-    - "difftool.diffmerge.cmd 'diffmerge \"$LOCAL\" \"$REMOTE\"'"
-    - 'format.pretty "oneline"'
-    - 'merge.tool diffmerge'
-    - "mergetool.diffmerge.cmd 'diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"'"
-    - 'mergetool.diffmerge.trustExitCode true'
-    - 'push.default "simple"'
+    - { name: 'user.name', value: 'Steve Edson' }
+    - { name: 'core.pager', value: 'diff-so-fancy | less --tabs=1,5 -R' }
+    - { name: 'color.branch', value: "always" }
+    - { name: 'color.diff', value: "auto" }
+    - { name: 'color.interactive', value: "always" }
+    - { name: 'color.status', value: "always" }
+    - { name: 'color.ui', value: "always" }
+    - { name: 'color.diff-highlight.oldNormal', value: "red bold" }
+    - { name: 'color.diff-highlight.oldHighlight', value: "red bold 52" }
+    - { name: 'color.diff-highlight.newNormal', value: "green bold" }
+    - { name: 'color.diff-highlight.newHighlight', value: "green bold 22" }
+    - { name: 'core.autocrlf', value: "input" }
+    - { name: 'core.whitespace', value: "trailing-space,space-before-tab,cr-at-eol" }
+    - { name: 'alias.cod', value: "checkout development" }
+    - { name: 'alias.cos', value: "checkout staging" }
+    - { name: 'alias.cop', value: "checkout production" }
+    - { name: 'alias.md', value: "merge development" }
+    - { name: 'alias.last', value: "log -1 HEAD" }
+    - { name: 'alias.headf', value: 'log --graph --pretty=tformat:"%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset" --abbrev-commit --decorate --parents --date=short -n32' }
+    - { name: 'diff.tool', value: 'diffmerge' }
+    - { name: 'difftool.diffmerge.cmd', value: 'diffmerge "$LOCAL" "$REMOTE"' }
+    - { name: 'format.pretty', value: "oneline" }
+    - { name: 'merge.tool', value: 'diffmerge' }
+    - { name: 'mergetool.diffmerge.cmd', value: 'diffmerge --merge --result="$MERGED" "$LOCAL" "$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"' }
+    - { name: 'mergetool.diffmerge.trustExitCode', value: true }
+    - { name: 'push.default', value: "simple" }
 
 - name: Enable text selection within quicklook
   osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
