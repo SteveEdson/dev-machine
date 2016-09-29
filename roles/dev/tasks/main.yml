@@ -195,6 +195,7 @@
   with_items:
     - tldr
     - proselint
+    - whereami
   become: yes
 
 - name: Install global Composer packages
