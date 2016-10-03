@@ -15,16 +15,27 @@
       tweets: t timeline -n 100
       homestead: 'function __homestead() { (cd {{ ansible_env.HOME }}/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
-- name: Make sure files exist
-  file: path={{ item }} state=touch
-  with_items:
-    - '~/.gemrc'
+- name: Check if gem config exists
+  stat: path={{ ansible_env.HOME }}/.gemrc
+  register: gem_config_exists
+
+- name: Create empty gem config file
+  file: path={{ ansible_env.HOME }}/.gemrc state=touch
+  when: gem_config_exists.stat.exists == false
 
 - name: Create gem config
   lineinfile: dest=~/.gemrc line='{{ item }}'
   with_items:
     - "gem: --no-rdoc --no-ri"
     - "install: --no-rdoc --no-ri"
+
+#- name: Check if global npm directory exists
+#  stat: path={{ ansible_env.HOME }}/.npm_packages
+#  register: npm_dir_exists
+#
+#- name: Create npm packages directory
+#  file: path={{ ansible_env.HOME }}/.npm_packages state=directory
+#  when: npm_dir_exists.stat.exists == false
 
 - name: Create Git configs
   git_config: scope=global name={{ item.name }} value={{ item.value }}
@@ -66,28 +77,25 @@
   osx_defaults: key=InitialKeyRepeat type=int value=25 state=present
   
 - name: Increase keyboard key repeat speed
-  osx_default: key=KeyRepeat type=int value=2
+  osx_defaults: key=KeyRepeat type=int value=2
 
 - name: Update brew daily
-  become: yes
   cron: name="brew autoupdate" special_time="daily"
-        user="steveedson" job="/usr/local/bin/brew update"
+        job="/usr/local/bin/brew update"
 
 - name: Run this Playbook daily
-  become: yes
-  become_user: root
   cron: name="Run Ansible playbook" special_time="daily"
-        user="root" job="cd {{ playbook_dir }} && ./ansible.sh"
+        job="cd {{ playbook_dir }} && ./ansible.sh"
 
-- name: Tap required homebrew formulas
-  homebrew_tap: tap={{ item }} state=present
+- name: Tap homebrew formulas
+  homebrew_tap: name={{ item }} state=present
   with_items:
     - homebrew/dupes
     - homebrew/versions
     - homebrew/php
 
 - name: Install packages from Homebrew
-  homebrew: name={{ item }} state=present update_homebrew=yes upgrade_all=yes
+  homebrew: name={{ item }} state=present
   with_items:
     - php70
     - php70-xdebug
@@ -149,6 +157,8 @@
     - "antigen apply"
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
+    #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
+    #- "export PATH=$NPM_PACKAGES/bin:$PATH"
 
 
 - name: Install Gem packages
@@ -184,7 +194,6 @@
     - autochecker
     - psi
     - a11y
-  become: yes
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
@@ -194,7 +203,6 @@
 
 - name: Make sure PIP is installed
   easy_install: name=pip state=latest
-  become: yes
 
 - name: Install PIP packages
   pip: name={{ item }} state=present
@@ -202,7 +210,6 @@
     - tldr
     - proselint
     - whereami
-  become: yes
 
 - name: Install global Composer packages
   ignore_errors: yes
@@ -218,8 +225,8 @@
     - "humbug/humbug"
     - "laravel/valet"
 
-- name: Setup launch agents for services
-  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-  with_items:
-    - mysql
-    - beanstalkd
+#- name: Setup launch agents for services
+#  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+#  with_items:
+#    - mysql
+#    - beanstalkd

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install Homebrew, if not already installed
 which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -5,4 +7,4 @@ which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.co
 which ansible-playbook > /dev/null || brew install ansible
 
 # Provision machine with ansible
-sudo ansible-playbook -i "localhost," -c local --become-method=su playbook.yml
+ansible-playbook -i "localhost," -c local --become-method=su playbook.yml
