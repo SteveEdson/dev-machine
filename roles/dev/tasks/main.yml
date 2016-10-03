@@ -84,7 +84,7 @@
         job="/usr/local/bin/brew update"
 
 - name: Run this Playbook daily
-  cron: name="Run Ansible playbook" special_time="daily"
+  cron: name="Run Ansible playbook" special_time="hourly"
         job="cd {{ playbook_dir }} && ./ansible.sh"
 
 - name: Tap homebrew formulas
@@ -202,7 +202,7 @@
     - nanobox
 
 - name: Make sure PIP is installed
-  easy_install: name=pip state=latest
+  easy_install: name=pip state=present
 
 - name: Install PIP packages
   pip: name={{ item }} state=present
