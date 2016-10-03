@@ -94,7 +94,7 @@
         job="/usr/local/bin/brew cleanup"
 
 - name: Run this Playbook daily
-  cron: name="Run Ansible playbook" special_time="hourly"
+  cron: name="Run Ansible playbook" special_time="daily"
         job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && ./ansible.sh"
 
 - name: Tap homebrew formulas
