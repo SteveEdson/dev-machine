@@ -85,7 +85,7 @@
 
 - name: Run this Playbook daily
   cron: name="Run Ansible playbook" special_time="hourly"
-        job="cd {{ playbook_dir }} && ./ansible.sh"
+        job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && ./ansible.sh"
 
 - name: Tap homebrew formulas
   homebrew_tap: name={{ item }} state=present
