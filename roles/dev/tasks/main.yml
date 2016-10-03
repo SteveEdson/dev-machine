@@ -62,6 +62,12 @@
 - name: Show hidden files in finder by default
   osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
 
+- name: Reduce keyboard key repeat delay
+  osx_defaults: key=InitialKeyRepeat type=int value=25 state=present
+  
+- name: Increase keyboard key repeat speed
+  osx_default: key=KeyRepeat type=int value=2
+
 - name: Update brew daily
   become: yes
   cron: name="brew autoupdate" special_time="daily"
