@@ -179,9 +179,14 @@
     - t
     - sass
     - compass
-    - susy
     - breakpoint
     - gist
+
+- name: Remove Gem packages
+  gem: name={{ item }} state=absent
+  with_items:
+    - susy
+    - breakpoint
 
 - name: Install NPM packages
   npm: name={{ item }} state=present global=yes
