@@ -4,6 +4,9 @@
   with_dict: "{{aliases}}"
   vars:
     aliases:
+      gcod: "git checkout development"
+      gcos: "git checkout staging"
+      gcop: "git checkout production"
       gc: "git commit -m"
       gs: git status
       gp: git pull
