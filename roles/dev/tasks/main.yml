@@ -10,6 +10,8 @@
       gc: "git commit -m"
       gs: git status
       gp: git pull
+      gpl: git pull
+      gph: git push
       bu: brew update
       art: php artisan
       derpal: drupal
