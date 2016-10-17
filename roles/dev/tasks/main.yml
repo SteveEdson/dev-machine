@@ -99,7 +99,7 @@
         job="/usr/local/bin/brew cleanup"
 
 - name: Run this Playbook every two hours
-  cron: name="Run Ansible playbook" hour="*/2"
+  cron: name="Run Ansible playbook" hour="*/2" minute="0"
         job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
 
 - name: Tap homebrew formulas
@@ -247,8 +247,11 @@
     - "humbug/humbug"
     - "laravel/valet"
 
-#- name: Setup launch agents for services
-#  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-#  with_items:
-#    - mysql
-#    - beanstalkd
+- name: Send Pushover notification
+  local_action: pushover app_token="a6abcp5wtcksvjrehgpitw255wcfzb" user_key="Pu6dhGQJuo6feH5Bf0JSwWZIfyAqIu" msg="{{ ansible_nodename }} has completed"
+
+- name: Setup launch agents for services
+  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+  with_items:
+    - mysql
+    - beanstalkd
