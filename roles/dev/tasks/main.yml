@@ -133,6 +133,7 @@
     - antigen
     - autoenv
     - android-sdk
+    - yarn
 
 - name: Install Brew Cask packages
   ignore_errors: yes
@@ -172,6 +173,7 @@
     - "antigen apply"
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
+    - 'export PATH="$PATH:$HOME/.yarn/bin"'
     #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
     #- "export PATH=$NPM_PACKAGES/bin:$PATH"
 
