@@ -98,8 +98,8 @@
   cron: name="brew cleanup" special_time="monthly"
         job="/usr/local/bin/brew cleanup"
 
-- name: Run this Playbook daily
-  cron: name="Run Ansible playbook" special_time="daily"
+- name: Run this Playbook every two hours
+  cron: name="Run Ansible playbook" hour="*/2"
         job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
 
 - name: Tap homebrew formulas
