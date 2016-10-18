@@ -7,6 +7,9 @@
       gcod: "git checkout development"
       gcos: "git checkout staging"
       gcop: "git checkout production"
+      gmd: "git merge development"
+      gms: "git merge staging"
+      gmp: "git merge production"
       gc: "git commit -m"
       gs: git status
       gp: git pull
