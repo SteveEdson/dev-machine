@@ -137,6 +137,8 @@
     - autoenv
     - android-sdk
     - yarn
+    - python
+    - python3
 
 - name: Install Brew Cask packages
   ignore_errors: yes
