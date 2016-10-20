@@ -237,7 +237,7 @@
     - whereami
     
 - name: Install PIP 3 packages
-  pip: name={{ item }} state=present executable=pip-3.3
+  pip: name={{ item }} state=present executable=pip3
   with_items:
     - gitsome
 
