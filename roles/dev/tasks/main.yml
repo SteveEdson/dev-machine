@@ -139,6 +139,7 @@
     - yarn
     - python
     - python3
+    - doctl
 
 - name: Install Brew Cask packages
   ignore_errors: yes
