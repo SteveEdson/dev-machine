@@ -169,6 +169,7 @@
     - bitbar
     - slack
     - disk-inventory-x
+    - docker
 
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
