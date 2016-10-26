@@ -193,7 +193,6 @@
     - t
     - sass
     - compass
-    - breakpoint
     - gist
 
 - name: Remove Gem packages
