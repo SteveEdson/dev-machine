@@ -140,6 +140,7 @@
     - python
     - python3
     - doctl
+    - mas
 
 - name: Install Brew Cask packages
   ignore_errors: yes
