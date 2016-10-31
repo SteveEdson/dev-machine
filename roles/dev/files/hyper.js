@@ -7,18 +7,18 @@ module.exports = {
         fontFamily: '"Meslo LG M DZ for Powerline", monospace',
 
         // terminal cursor background color (hex)
-        cursorColor: '#F81CE5',
+        //cursorColor: '#F81CE5',
 
         cursorShape: 'BEAM',
 
-        // color of the text
-        foregroundColor: '#fff',
-
-        // terminal background color
-        backgroundColor: '#000',
-
-        // border color (window, tabs)
-        borderColor: '#333',
+        // // color of the text
+        // foregroundColor: '#fff',
+        //
+        // // terminal background color
+        // backgroundColor: '#000',
+        //
+        // // border color (window, tabs)
+        // borderColor: '#333',
 
         // custom css to embed in the main window
         css: '',
@@ -31,24 +31,24 @@ module.exports = {
 
         // some color overrides. see http://bit.ly/29k1iU2 for
         // the full list
-        colors: [
-            '#000000',
-            '#ff0000',
-            '#33ff00',
-            '#ffff00',
-            '#0066ff',
-            '#cc00ff',
-            '#00ffff',
-            '#d0d0d0',
-            '#808080',
-            '#ff0000',
-            '#33ff00',
-            '#ffff00',
-            '#0066ff',
-            '#cc00ff',
-            '#00ffff',
-            '#ffffff'
-        ]
+        // colors: [
+        //     '#000000',
+        //     '#ff0000',
+        //     '#33ff00',
+        //     '#ffff00',
+        //     '#0066ff',
+        //     '#cc00ff',
+        //     '#00ffff',
+        //     '#d0d0d0',
+        //     '#808080',
+        //     '#ff0000',
+        //     '#33ff00',
+        //     '#ffff00',
+        //     '#0066ff',
+        //     '#cc00ff',
+        //     '#00ffff',
+        //     '#ffffff'
+        // ]
     },
 
     // a list of plugins to fetch and install from npm
@@ -60,7 +60,8 @@ module.exports = {
     plugins: [
         'hypertheme',
         'hyperline',
-        'hyperterm-atom-dark'
+        'hyperterm-alternatescroll',
+        'hyperterm-firewatch'
     ],
 
     // in development, you can create a directory under
