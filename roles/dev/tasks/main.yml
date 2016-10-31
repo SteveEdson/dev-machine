@@ -141,6 +141,7 @@
     - python3
     - doctl
     - mas
+    - node6-lts
 
 - name: Install Brew Cask packages
   ignore_errors: yes
@@ -171,6 +172,12 @@
     - slack
     - disk-inventory-x
     - docker
+
+- name: Remove Brew Packages
+  ignore_errors: yes
+  homebrew: name={{ item }} state=present
+  with_items:
+    - node
 
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
