@@ -185,6 +185,16 @@
     #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
     #- "export PATH=$NPM_PACKAGES/bin:$PATH"
 
+- name: Check that Hyper config has been symlinked
+  stat: path={{ ansible_env.HOME }}/.hyper.js
+  register: hyper_config
+
+- name: Delete old hyperterm file
+  file: path={{ ansible_env.HOME }}/.hyper.js state=absent
+  when:
+    - hyper_config.stat.exists == true
+    - hyper_config.stat.islnk == false
+
 - name: Hyperterm Config
   file: src={{ playbook_dir }}/roles/dev/files/hyper.js dest={{ ansible_env.HOME }}/.hyper.js state=link
 
