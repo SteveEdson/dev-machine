@@ -172,6 +172,7 @@
     - slack
     - disk-inventory-x
     - docker
+    - hyper
 
 - name: Remove Brew Packages
   ignore_errors: yes
