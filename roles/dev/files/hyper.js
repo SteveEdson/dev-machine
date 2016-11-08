@@ -27,7 +27,7 @@ module.exports = {
         termCSS: '',
 
         // custom padding (css format, i.e.: `top right bottom left`)
-        padding: '12px 14px',
+//        padding: '12px 14px',
 
         // some color overrides. see http://bit.ly/29k1iU2 for
         // the full list
@@ -60,7 +60,6 @@ module.exports = {
     plugins: [
         'hypertheme',
         'hyperline',
-        'hyperterm-alternatescroll',
         'hyperterm-firewatch'
     ],
 
