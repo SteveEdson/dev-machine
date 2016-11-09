@@ -173,6 +173,7 @@
     - disk-inventory-x
     - docker
     - hyper
+    - sdformatter
 
 - name: Remove Brew Packages
   ignore_errors: yes
