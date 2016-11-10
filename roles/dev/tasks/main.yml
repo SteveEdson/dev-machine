@@ -191,6 +191,7 @@
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
     - 'export PATH="$PATH:$HOME/.yarn/bin"'
+    - 'export PATH=$PATH:vendor/bin"
     #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
     #- "export PATH=$NPM_PACKAGES/bin:$PATH"
 
