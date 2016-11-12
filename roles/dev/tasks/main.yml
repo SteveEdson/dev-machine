@@ -21,7 +21,7 @@
       derp: drupal
       tweet: t tweet
       tweets: t timeline -n 100
-      homestead: 'function __homestead() { (cd {{ ansible_env.HOME }}/.composer/vendor/bin/homestead && vagrant $*); unset -f __homestead; }; __homestead'
+      docker_clean_images: docker rmi $(docker images -a --filter=dangling=true -q) --force
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
