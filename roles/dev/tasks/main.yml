@@ -213,6 +213,19 @@
 - name: Hyperterm Config
   file: src={{ playbook_dir }}/roles/dev/files/hyper.js dest={{ ansible_env.HOME }}/.hyper.js state=hard
 
+- name: Check status of Laravel HTML driver file
+  stat: path={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php
+  register: valet_html_driver
+
+- name: Delete old valet driver file if not linked
+  file: path={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php state=absent
+  when:
+    - valet_html_driver.stat.exists == true
+    - valet_html_driver.stat.islnk == false
+
+- name: Link Valet driver file
+  file: src={{ playbook_dir }}/roles/dev/files/BasicHtmlSuffixValetDriver.php dest={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php state=soft
+
 - name: Install Gem packages
   gem: name={{ item }} state=present
   with_items:
