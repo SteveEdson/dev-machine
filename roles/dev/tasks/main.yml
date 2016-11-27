@@ -263,6 +263,7 @@
     - autochecker
     - psi
     - a11y
+    - np
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
