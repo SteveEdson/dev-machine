@@ -70,6 +70,7 @@
     - { name: 'alias.cop', value: "checkout production" }
     - { name: 'alias.md', value: "merge development" }
     - { name: 'alias.last', value: "log -1 HEAD" }
+    - { name: 'alias.undo-commit', value: "reset HEAD~" }
     - { name: 'alias.headf', value: 'log --graph --pretty=tformat:"%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset" --abbrev-commit --decorate --parents --date=short -n32' }
     - { name: 'diff.tool', value: 'diffmerge' }
     - { name: 'difftool.diffmerge.cmd', value: 'diffmerge "$LOCAL" "$REMOTE"' }
