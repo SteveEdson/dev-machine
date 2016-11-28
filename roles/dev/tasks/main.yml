@@ -225,7 +225,7 @@
     - valet_html_driver.stat.islnk == false
 
 - name: Link Valet driver file
-  file: src={{ playbook_dir }}/roles/dev/files/BasicHtmlSuffixValetDriver.php dest={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php state=soft
+  file: src={{ playbook_dir }}/roles/dev/files/BasicHtmlSuffixValetDriver.php dest={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php state=link
 
 - name: Install Gem packages
   gem: name={{ item }} state=present
