@@ -195,7 +195,7 @@
     - "antigen apply"
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
-    - 'export PATH="$PATH:$HOME/.yarn/bin"'
+    - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
     - 'COMPLETION_WAITING_DOTS="true"'
     #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
