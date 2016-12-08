@@ -146,7 +146,6 @@
     - python3
     - doctl
     - mas
-    - node6-lts
     - hub
 
 - name: Install Brew Cask packages
