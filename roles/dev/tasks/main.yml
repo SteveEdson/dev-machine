@@ -270,6 +270,7 @@
     - psi
     - a11y
     - np
+    - cost-of-modules
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
