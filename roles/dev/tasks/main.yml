@@ -120,8 +120,8 @@
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present
   with_items:
-    - php70
-    - php70-xdebug
+    - php71
+    - php71-xdebug
     - php-code-sniffer
     - phpmd
     - speedtest_cli
