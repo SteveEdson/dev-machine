@@ -286,7 +286,7 @@
 - name: Install PIP 3 packages
   pip: name={{ item }} state=present executable=pip3
   with_items:
-    - gitsome
+    #- gitsome
 
 - name: Install global Composer packages
   ignore_errors: yes
