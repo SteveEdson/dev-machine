@@ -1,0 +1,18 @@
+- name: Install atom packages
+  command: apm install {{ item }} creates=~/.atom/packages/{{ item }}/package.json
+  with_items:
+    - highlight-selected
+    - aligner
+    - autocomplete-modules
+    - color-picker
+    - pigments
+    - colorful-json
+    - git-time-machine
+    - imdone-atom
+    - platformio-ide-terminal
+    - regex-railroad-diagram
+    - double-tag
+    - linter-write-good
+    - file-icons
+    - linter
+    - markdown-writer

@@ -88,7 +88,7 @@
 
 - name: Reduce keyboard key repeat delay
   osx_defaults: key=InitialKeyRepeat type=int value=25 state=present
-  
+
 - name: Increase keyboard key repeat speed
   osx_defaults: key=KeyRepeat type=int value=2
 
@@ -283,10 +283,10 @@
     - proselint
     - whereami
     
-- name: Install PIP 3 packages
-  pip: name={{ item }} state=present executable=pip3
-  with_items:
-    #- gitsome
+#- name: Install PIP 3 packages
+#  pip: name={{ item }} state=present executable=pip3
+#  with_items:
+#    - gitsome
 
 - name: Install global Composer packages
   ignore_errors: yes
