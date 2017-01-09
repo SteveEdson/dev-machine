@@ -2,6 +2,6 @@
 
 - hosts: all
   roles:
-    - atom
     - dev
+    - atom
   user: steveedson
