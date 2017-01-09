@@ -294,13 +294,12 @@
     command: "require" 
     working_dir: "{{ ansible_env.HOME }}/.composer"
     no_dev: no
-    arguments: "{{ item }}"
+    arguments: "{{ item.name }} {% if 'version' in item %}{{ item.version }}{% endif %}"
   with_items:
-    - "laravel/installer"
-    - "laravel/homestead"
-    - "getkirby/cli"
-    - "humbug/humbug"
-    - "laravel/valet"
+    - { name: "laravel/installer" }
+    - { name: "laravel/homestead" }
+    - { name: "getkirby/cli" }
+    - { name: "laravel/valet", version: "~1.0" }
 
 - name: Send Pushover notification
   local_action: pushover app_token="a6abcp5wtcksvjrehgpitw255wcfzb" user_key="Pu6dhGQJuo6feH5Bf0JSwWZIfyAqIu" msg="{{ ansible_nodename }} has completed"
