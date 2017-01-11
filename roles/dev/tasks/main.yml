@@ -153,6 +153,7 @@
   ignore_errors: yes
   homebrew_cask: name={{ item }} state=present
   with_items:
+    - fluor
     - java
     - alfred
     - virtualbox
