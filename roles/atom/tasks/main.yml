@@ -17,3 +17,4 @@
     - linter
     - markdown-writer
     - language-vue
+    - atom-beautify
