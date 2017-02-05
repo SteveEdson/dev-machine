@@ -122,6 +122,7 @@
   with_items:
     - php70
     - php70-xdebug
+    - php70-mcrypt
     - php-code-sniffer
     - phpmd
     - speedtest_cli
