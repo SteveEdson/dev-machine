@@ -182,6 +182,7 @@
     - docker
     - hyper
     - sdformatter
+    - etcher
 
 - name: Remove Brew Packages
   ignore_errors: yes
