@@ -18,3 +18,4 @@
     - markdown-writer
     - language-vue
     - atom-beautify
+    - sass-autocompile
