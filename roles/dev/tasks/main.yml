@@ -239,6 +239,7 @@
     - sass
     - compass
     - gist
+    - mailcatcher
 
 - name: Remove Gem packages
   gem: name={{ item }} state=absent
