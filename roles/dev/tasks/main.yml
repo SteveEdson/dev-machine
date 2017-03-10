@@ -25,6 +25,7 @@
       docker_clean_containers: 'docker rm -v \$(docker ps -a -q -f status=exited)'
       docker_clean_volumes: 'docker volume rm \$(docker volume ls -qf dangling=true)'
       docker_clean: docker_clean_images; docker_clean_containers; docker_clean_volumes
+      time_estimate: 'docker run --rm -v \$(pwd):/code khor/git-hours'
       git: hub
 
 - name: Check if gem config exists
