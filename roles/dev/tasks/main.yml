@@ -271,6 +271,7 @@
     - a11y
     - np
     - cost-of-modules
+    - insect
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
