@@ -185,6 +185,7 @@
     - sdformatter
     - etcher
     - mjml
+    - hosts
 
 - name: Remove Brew Packages
   ignore_errors: yes
