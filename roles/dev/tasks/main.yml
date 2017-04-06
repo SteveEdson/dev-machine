@@ -184,6 +184,7 @@
     - hyper
     - sdformatter
     - etcher
+    - mjml
 
 - name: Remove Brew Packages
   ignore_errors: yes
