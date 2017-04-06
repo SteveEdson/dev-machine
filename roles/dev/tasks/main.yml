@@ -142,7 +142,6 @@
     - beanstalkd
     - antigen
     - autoenv
-    - android-sdk
     - yarn
     - python
     - python3
@@ -186,6 +185,7 @@
     - etcher
     - mjml
     - hosts
+    - android-sdk
 
 - name: Remove Brew Packages
   ignore_errors: yes
