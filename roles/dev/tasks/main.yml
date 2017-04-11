@@ -186,6 +186,7 @@
     - mjml
     - hosts
     - android-sdk
+    - franz
 
 - name: Remove Brew Packages
   ignore_errors: yes
