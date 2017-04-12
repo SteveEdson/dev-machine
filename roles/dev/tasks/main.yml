@@ -15,6 +15,7 @@
       gp: git pull
       gpl: git pull
       gph: git push
+      update: "git push && gcos && gmd && git push && gcop && gms && git push && gcod"
       bu: brew update
       art: php artisan
       derpal: drupal
