@@ -188,6 +188,7 @@
     - hosts
     - android-sdk
     - franz
+    - metabase
 
 - name: Remove Brew Packages
   ignore_errors: yes
