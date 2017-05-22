@@ -189,6 +189,7 @@
     - android-sdk
     - franz
     - metabase
+    - caddy
 
 - name: Remove Brew Packages
   ignore_errors: yes
