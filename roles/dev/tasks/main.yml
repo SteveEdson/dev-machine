@@ -28,6 +28,7 @@
       docker_clean: docker_clean_images; docker_clean_containers; docker_clean_volumes
       time_estimate: 'docker run --rm -v \$(pwd):/code khor/git-hours'
       git: hub
+      wherefiles: "lsof | awk '{ print $2; }' | uniq -c | sort -rn | head"
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
