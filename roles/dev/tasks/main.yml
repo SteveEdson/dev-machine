@@ -325,4 +325,4 @@
     - beanstalkd
     
 - name: Copy script to convert pfx files
-  file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx.sh state=hard
+  file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx.sh state=hard mode=u+x
