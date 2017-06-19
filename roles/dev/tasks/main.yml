@@ -152,6 +152,7 @@
     - hub
     - textql
     - colordiff
+    - caddy
 
 - name: Install Brew Cask packages
   ignore_errors: yes
@@ -190,8 +191,7 @@
     - hosts
     - android-sdk
     - franz
-    - metabase
-    - caddy
+    - metabase-app
 
 - name: Remove Brew Packages
   ignore_errors: yes
