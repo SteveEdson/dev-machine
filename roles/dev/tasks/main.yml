@@ -151,6 +151,7 @@
     - mas
     - hub
     - textql
+    - colordiff
 
 - name: Install Brew Cask packages
   ignore_errors: yes
