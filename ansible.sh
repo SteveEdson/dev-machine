@@ -7,4 +7,13 @@ which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.co
 which ansible-playbook > /dev/null || brew install ansible
 
 # Provision machine with ansible
-ansible-playbook -i "localhost," -c local --become-method=su playbook.yml
+
+
+if [ -z "$1" ];
+then
+    : # $1 was not given
+    ansible-playbook -i "localhost," -c local --become-method=su playbook.yml
+else
+    : # $1 was given
+    ansible-playbook -i "localhost," -c local --become-method=su playbook.yml --start-at-task "$1"
+fi
