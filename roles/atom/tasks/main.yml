@@ -20,3 +20,5 @@
     - atom-beautify
     - sass-autocompile
     - project-manager
+    - php-twig
+    - fonts
