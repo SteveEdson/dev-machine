@@ -23,3 +23,5 @@
     - php-twig
     - fonts
     - emmet
+    - minimap
+    - minimap-git-diff
