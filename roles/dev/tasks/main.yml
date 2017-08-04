@@ -29,6 +29,7 @@
       time_estimate: 'docker run --rm -v \$(pwd):/code khor/git-hours'
       git: hub
       wherefiles: "lsof | awk '{ print $2; }' | uniq -c | sort -rn | head"
+      ls: exa
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
@@ -153,6 +154,7 @@
     - textql
     - colordiff
     - caddy
+    - exa
 
 - name: Install Brew Cask packages
   ignore_errors: yes
