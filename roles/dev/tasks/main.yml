@@ -83,6 +83,7 @@
     - { name: 'mergetool.diffmerge.cmd', value: 'diffmerge --merge --result="$MERGED" "$LOCAL" "$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"' }
     - { name: 'mergetool.diffmerge.trustExitCode', value: true }
     - { name: 'push.default', value: "simple" }
+    - { name: 'push.followTags', value: true }
 
 - name: Enable text selection within quicklook
   osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
