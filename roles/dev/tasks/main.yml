@@ -157,6 +157,7 @@
     - caddy
     - exa
     - m-cli
+    - ripgrep
 
 - name: Install Brew Cask packages
   ignore_errors: yes
