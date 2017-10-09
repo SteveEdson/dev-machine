@@ -293,10 +293,14 @@
     - nanobox
 
 - name: Make sure PIP is installed
-  easy_install: name=pip state=present
+  easy_install: name=pip state=latest
+  become: yes
+  ignore_errors: yes
 
 - name: Install PIP packages
-  pip: name={{ item }} state=present
+  pip: name={{ item }} state=latest
+  become: yes
+  ignore_errors: yes
   with_items:
     - tldr
     - proselint
