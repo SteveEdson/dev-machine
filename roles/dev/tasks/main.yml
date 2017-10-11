@@ -84,6 +84,7 @@
     - { name: 'mergetool.diffmerge.trustExitCode', value: true }
     - { name: 'push.default', value: "simple" }
     - { name: 'push.followTags', value: true }
+    - { name: 'tag.sort', value: 'version:refname' } 
 
 - name: Enable text selection within quicklook
   osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
