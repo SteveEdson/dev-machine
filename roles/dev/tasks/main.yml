@@ -322,7 +322,6 @@
   with_items:
     - { name: "laravel/installer" }
     - { name: "laravel/homestead" }
-    - { name: "getkirby/cli" }
     - { name: "laravel/valet", version: "dev-master" }
 
 - name: Setup launch agents for services
