@@ -30,6 +30,7 @@
       git: hub
       wherefiles: "lsof | awk '{ print $2; }' | uniq -c | sort -rn | head"
       ls: exa
+      copy_ssh: "cat ~/.ssh/id_rsa.pub | pbcopy"
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
