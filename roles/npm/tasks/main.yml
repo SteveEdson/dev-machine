@@ -1,0 +1,23 @@
+---
+- name: Install NPM packages
+  npm: name={{ item }} state=present global=yes
+  with_items:
+    - electron-prebuilt
+    - gulp
+    - jspm
+    - pm2
+    - grunt-cli
+    - npm-check-updates
+    - yo
+    - babel
+    - plato
+    - webpack
+    - susy
+    - nativefier
+    - vue-cli
+    - autochecker
+    - psi
+    - a11y
+    - np
+    - cost-of-modules
+    - insect

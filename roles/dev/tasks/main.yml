@@ -105,110 +105,14 @@
 - name: Set cron path
   cron: name=PATH env=yes value=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-- name: Update brew daily
-  cron: name="brew autoupdate" special_time="daily"
-        job="/usr/local/bin/brew update"
-
-- name: Cleanup brew
-  cron: name="brew cleanup" special_time="monthly"
-        job="/usr/local/bin/brew cleanup"
-
 - name: Run this Playbook every two hours
   cron: name="Run Ansible playbook" hour="*/2" minute="0"
         job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
 
-- name: Tap homebrew formulas
-  homebrew_tap: name={{ item }} state=present
-  with_items:
-    - homebrew/dupes
-    - homebrew/versions
-    - homebrew/php
-
-- name: Install packages from Homebrew
-  homebrew: name={{ item }} state=present
-  with_items:
-    - php71
-    - php71-xdebug
-    - php71-mcrypt
-    - php-code-sniffer
-    - phpmd
-    - speedtest_cli
-    - httpie
-    - exiftool
-    - git-extras
-    - pandoc
-    - tree
-    - composer
-    - node
-    - q
-    - git-cal
-    - aria2
-    - jq
-    - diff-so-fancy
-    - beanstalkd
-    - antigen
-    - autoenv
-    - yarn
-    - python
-    - python3
-    - doctl
-    - mas
-    - hub
-    - textql
-    - colordiff
-    - caddy
-    - exa
-    - m-cli
-    - ripgrep
-
-- name: Install Brew Cask packages
-  ignore_errors: yes
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - fluor
-    - java
-    - alfred
-    - virtualbox
-    - vagrant
-    - phpstorm
-    - dash
-    - google-chrome
-    - firefox
-    - atom
-    - iterm2
-    - imageoptim
-    - sequel-pro
-    - qlstephen
-    - qlmarkdown
-    - quicklook-csv
-    - betterzipql
-    - dropbox
-    - marked
-    - licecap
-    - caret
-    - diffmerge
-    - bitbar
-    - slack
-    - disk-inventory-x
-    - docker
-    - hyper
-    - sdformatter
-    - etcher
-    - mjml
-    - hosts
-    - android-sdk
-    - franz
-    - metabase-app
-
-- name: Remove Brew Packages
-  ignore_errors: yes
-  homebrew: name={{ item }} state=present
-  with_items:
-    - node
 
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
-  with_items:
+  with_items:    
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
     - "antigen bundle zsh-users/zsh-syntax-highlighting"
     - "antigen apply"
@@ -263,45 +167,16 @@
     - susy
     - breakpoint
 
-- name: Install NPM packages
-  npm: name={{ item }} state=present global=yes
-  with_items:
-    - electron-prebuilt
-    - bower
-    - gulp
-    - jspm
-    - pm2
-    - grunt-cli
-    - npm-check-updates
-    - yo
-    - babel
-    - plato
-    - webpack
-    - mocha
-    - susy
-    - nativefier
-    - vue-cli
-    - autochecker
-    - psi
-    - a11y
-    - np
-    - cost-of-modules
-    - insect
-
-- name: Remove Brew Cask packages
-  ignore_errors: yes
-  homebrew_cask: name={{ item }} state=absent
-  with_items:
-    - nanobox
-
 - name: Make sure PIP is installed
   easy_install: name=pip state=latest
-  become: yes
+  # become: yes
+  extra_args: --user
   ignore_errors: yes
 
 - name: Install PIP packages
   pip: name={{ item }} state=latest
-  become: yes
+  # become: yes
+  extra_args: --user
   ignore_errors: yes
   with_items:
     - tldr
@@ -324,12 +199,6 @@
     - { name: "laravel/installer" }
     - { name: "laravel/homestead" }
     - { name: "laravel/valet", version: "dev-master" }
-
-- name: Setup launch agents for services
-  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-  with_items:
-    - mysql
-    - beanstalkd
     
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x

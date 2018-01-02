@@ -3,5 +3,7 @@
 - hosts: all
   roles:
     - dev
+    - brew
     - atom
+    - npm  
   user: steveedson
