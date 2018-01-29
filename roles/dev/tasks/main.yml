@@ -31,6 +31,11 @@
       wherefiles: "lsof | awk '{ print $2; }' | uniq -c | sort -rn | head"
       ls: exa
       copy_ssh: "cat ~/.ssh/id_rsa.pub | pbcopy"
+      nah: "git reset --hard;git clean -df"
+      migrate: "php artisan migrate"
+      chrome: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+      octal: "stat -f '%A %a %N'"
+      ip: "curl icanhazip.com"
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
