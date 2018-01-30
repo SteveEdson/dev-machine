@@ -175,7 +175,6 @@
 - name: Make sure PIP is installed
   easy_install: name=pip state=latest
   # become: yes
-  extra_args: --user
   ignore_errors: yes
 
 - name: Install PIP packages
