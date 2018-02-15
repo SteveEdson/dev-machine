@@ -14,6 +14,7 @@
       gs: git status
       gpl: git pull
       gp: git push  
+      gpt: "git push --tags"
       gph: git push
       update: "git push && gcos && gmd && git push && gcop && gms && git push && gcod"
       bu: brew update
