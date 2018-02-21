@@ -17,9 +17,8 @@
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present
   with_items:
-    - php71
-    - php71-xdebug
-    - php71-mcrypt
+    - php72
+    - php72-xdebug
     - php-code-sniffer
     - phpmd
     - speedtest_cli
@@ -95,6 +94,7 @@
   homebrew: name={{ item }} state=present
   with_items:
     - node
+    - php71-mcrypt
 
 - name: ZSH brew config
   lineinfile: dest=~/.zshrc line='{{ item }}'
