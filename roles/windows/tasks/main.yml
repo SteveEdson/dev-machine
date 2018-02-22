@@ -1,0 +1,17 @@
+- name: Install windows packages
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - git
+  - googlechrome
+  - firefox
+  - 7zip.install
+  - vlc
+  - nodejs.install
+  - notepadplusplus.install
+  - windirstat
+  - spotify
+  - dropbox
+  - visualstudiocode
+  - phpstorm

@@ -13,3 +13,7 @@ Currently, Ansible and Brew. These will be automatically installed if missing.
 Simply run `./ansible.sh`.
 
 **WARNING: This *will* install and modify packages on your machine. Read through the files in `roles/` so you know what will happen.**
+
+### One Liner
+
+`git clone git@github.com:SteveEdson/dev-machine.git && cd dev-machine && ./ansible.sh`

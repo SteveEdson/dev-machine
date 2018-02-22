@@ -1,4 +1,11 @@
 ---
+
+- name: Run windows roles
+  include_role:
+    name: windows
+  when: "ansible_os_family == 'Windows'"
+
+
 - name: Create system aliases
   lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
   with_dict: "{{aliases}}"
