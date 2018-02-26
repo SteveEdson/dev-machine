@@ -1,0 +1,29 @@
+- name: Install code packages
+  command: code --install-extension {{ item }}
+  register: vscode_result
+  changed_when: "'already installed' not in vscode_result.stdout"
+  with_items:
+    - DavidAnson.vscode-markdownlint
+    - HookyQR.beautify
+    - PeterJausovec.vscode-docker
+    - daylerees.rainglow
+    - dbaeumer.vscode-eslint
+    - eg2.vscode-npm-script
+    - felipecaputo.git-project-manager
+    - felixfbecker.php-debug
+    - felixfbecker.php-intellisense
+    - felixfbecker.php-pack
+    - kenhowardpdx.vscode-gist
+    - kisstkondoros.vscode-gutter-preview
+    - lkytal.quicktask
+    - marcostazi.VS-code-drupal
+    - ms-vscode.csharp
+    - msjsdiag.debugger-for-chrome
+    - octref.vetur
+    - pnp.polacode
+    - robertohuertasm.vscode-icons
+    - ryannaddy.laravel-artisan
+    - sachittandukar.laravel-5-snippets
+    - wayou.vscode-todo-highlight
+    - whatwedo.twig
+    - zhuangtongfa.Material-theme

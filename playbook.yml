@@ -4,6 +4,6 @@
   roles:
     - dev
     - brew
-    - atom
+    - code
     - npm  
   user: steveedson
