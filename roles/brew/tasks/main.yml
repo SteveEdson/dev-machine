@@ -10,8 +10,6 @@
 - name: Tap homebrew formulas
   homebrew_tap: name={{ item }} state=present
   with_items:
-    - homebrew/dupes
-    - homebrew/versions
     - homebrew/php
 
 - name: Install packages from Homebrew
