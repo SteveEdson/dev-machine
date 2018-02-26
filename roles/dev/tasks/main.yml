@@ -44,6 +44,7 @@
       chrome: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
       octal: "stat -f '%A %a %N'"
       ip: "curl icanhazip.com"
+      pg: phonegap
 
 - name: Check if gem config exists
   stat: path={{ ansible_env.HOME }}/.gemrc
