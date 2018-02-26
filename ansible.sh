@@ -8,6 +8,9 @@ which ansible-playbook > /dev/null || brew install ansible
 
 # Provision machine with ansible
 
+if [ ! -d "~/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi 
 
 if [ -z "$1" ];
 then
