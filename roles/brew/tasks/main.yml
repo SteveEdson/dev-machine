@@ -78,6 +78,7 @@
     - etcher
     - mjml
     - android-sdk
+    - visual-studio-code
 
 - name: Remove Brew Packages
   ignore_errors: yes
