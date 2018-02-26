@@ -89,7 +89,7 @@
 
 - name: Remove Brew Packages
   ignore_errors: yes
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=absent
   with_items:
     - node
     - php71-mcrypt
