@@ -58,12 +58,9 @@
     - virtualbox
     - vagrant
     - phpstorm
-    - dash
     - google-chrome
     - firefox
-    - atom
     - iterm2
-    - imageoptim
     - sequel-pro
     - qlstephen
     - qlmarkdown
@@ -82,10 +79,7 @@
     - sdformatter
     - etcher
     - mjml
-    - hosts
     - android-sdk
-    - franz
-    - metabase-app
 
 - name: Remove Brew Packages
   ignore_errors: yes
@@ -104,6 +98,12 @@
   homebrew_cask: name={{ item }} state=absent
   with_items:
     - nanobox
+    - metabase-app
+    - franz
+    - hosts
+    - imageoptim
+    - atom
+    - dash
 
 - name: Setup launch agents for brew installed services
   command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
