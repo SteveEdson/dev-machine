@@ -5,7 +5,6 @@
     name: windows
   when: "ansible_os_family == 'Windows'"
 
-
 - name: Create system aliases
   lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
   with_dict: "{{aliases}}"
@@ -46,20 +45,6 @@
       ip: "curl icanhazip.com"
       pg: phonegap
 
-- name: Check if gem config exists
-  stat: path={{ ansible_env.HOME }}/.gemrc
-  register: gem_config_exists
-
-- name: Create empty gem config file
-  file: path={{ ansible_env.HOME }}/.gemrc state=touch
-  when: gem_config_exists.stat.exists == false
-
-- name: Create gem config
-  lineinfile: dest=~/.gemrc line='{{ item }}'
-  with_items:
-    - "gem: --no-rdoc --no-ri"
-    - "install: --no-rdoc --no-ri"
-
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
 #  register: npm_dir_exists
@@ -68,66 +53,9 @@
 #  file: path={{ ansible_env.HOME }}/.npm_packages state=directory
 #  when: npm_dir_exists.stat.exists == false
 
-- name: Create Git configs
-  git_config: scope=global name={{ item.name }} value={{ item.value }}
-  with_items:
-    - { name: 'user.name', value: 'Steve Edson' }
-    - { name: 'core.pager', value: 'diff-so-fancy | less --tabs=1,5 -R' }
-    - { name: 'color.branch', value: "always" }
-    - { name: 'color.diff', value: "auto" }
-    - { name: 'color.interactive', value: "always" }
-    - { name: 'color.status', value: "always" }
-    - { name: 'color.ui', value: "always" }
-    - { name: 'color.diff-highlight.oldNormal', value: "red bold" }
-    - { name: 'color.diff-highlight.oldHighlight', value: "red bold 52" }
-    - { name: 'color.diff-highlight.newNormal', value: "green bold" }
-    - { name: 'color.diff-highlight.newHighlight', value: "green bold 22" }
-    - { name: 'core.autocrlf', value: "input" }
-    - { name: 'core.whitespace', value: "trailing-space,space-before-tab,cr-at-eol" }
-    - { name: 'alias.cod', value: "checkout development" }
-    - { name: 'alias.cos', value: "checkout staging" }
-    - { name: 'alias.cop', value: "checkout production" }
-    - { name: 'alias.md', value: "merge development" }
-    - { name: 'alias.last', value: "log -1 HEAD" }
-    - { name: 'alias.undo-commit', value: "reset HEAD~" }
-    - { name: 'alias.headf', value: 'log --graph --pretty=tformat:"%Cblue %h %Cgreen %ad %Cred %an %Creset %s %Cblue%d%Creset" --abbrev-commit --decorate --parents --date=short -n32' }
-    - { name: 'diff.tool', value: 'diffmerge' }
-    - { name: 'difftool.diffmerge.cmd', value: 'diffmerge "$LOCAL" "$REMOTE"' }
-    - { name: 'format.pretty', value: "oneline" }
-    - { name: 'merge.tool', value: 'diffmerge' }
-    - { name: 'mergetool.diffmerge.cmd', value: 'diffmerge --merge --result="$MERGED" "$LOCAL" "$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"' }
-    - { name: 'mergetool.diffmerge.trustExitCode', value: true }
-    - { name: 'push.default', value: "simple" }
-    - { name: 'push.followTags', value: true }
-    - { name: 'tag.sort', value: 'version:refname' } 
-    - { name: 'pull.rebase', value: true }
-
-- name: Enable text selection within quicklook
-  osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
-
-- name: Show hidden files in finder by default
-  osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
-
-- name: Reduce keyboard key repeat delay
-  osx_defaults: key=InitialKeyRepeat type=int value=25 state=present
-
-- name: Increase keyboard key repeat speed
-  osx_defaults: key=KeyRepeat type=int value=2
-
-- name: Set cron shell
-  cron: name=SHELL env=yes value=/bin/zsh
-
-- name: Set cron path
-  cron: name=PATH env=yes value=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-
-- name: Run this Playbook every two hours
-  cron: name="Run Ansible playbook" hour="*/2" minute="0"
-        job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
-
-
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
-  with_items:    
+  with_items:
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
     - "antigen bundle zsh-users/zsh-syntax-highlighting"
     - "antigen apply"
@@ -136,8 +64,6 @@
     - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
     - 'COMPLETION_WAITING_DOTS="true"'
-    #- "NPM_PACKAGES={{ ansible_env.HOME }}/.npm_packages"
-    #- "export PATH=$NPM_PACKAGES/bin:$PATH"
 
 - name: Check that Hyper config has been symlinked
   stat: path={{ ansible_env.HOME }}/.hyper.js
@@ -161,23 +87,6 @@
   when:
     - valet_html_driver.stat.exists == true
     - valet_html_driver.stat.islnk == false
-
-- name: Install Gem packages
-  gem: name={{ item }} state=present
-  with_items:
-    - bundler
-    - jekyll
-    - t
-    - sass
-    - compass
-    - gist
-    - mailcatcher
-
-- name: Remove Gem packages
-  gem: name={{ item }} state=absent
-  with_items:
-    - susy
-    - breakpoint
 
 - name: Make sure PIP is installed
   easy_install: name=pip state=latest

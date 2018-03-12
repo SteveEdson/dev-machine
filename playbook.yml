@@ -2,7 +2,11 @@
 
 - hosts: all
   roles:
+    - base
+    - git
     - dev
+    - mac
+    - gem
     - brew
     - code
     - npm  

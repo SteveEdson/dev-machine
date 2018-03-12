@@ -1,0 +1,32 @@
+---
+
+- name: Check if gem config exists
+  stat: path={{ ansible_env.HOME }}/.gemrc
+  register: gem_config_exists
+
+- name: Create empty gem config file
+  file: path={{ ansible_env.HOME }}/.gemrc state=touch
+  when: gem_config_exists.stat.exists == false
+
+- name: Create gem config
+  lineinfile: dest=~/.gemrc line='{{ item }}'
+  with_items:
+    - "gem: --no-rdoc --no-ri"
+    - "install: --no-rdoc --no-ri"
+
+- name: Install Gem packages
+  gem: name={{ item }} state=present
+  with_items:
+    - bundler
+    - jekyll
+    - t
+    - sass
+    - compass
+    - gist
+    - mailcatcher
+
+- name: Remove Gem packages
+  gem: name={{ item }} state=absent
+  with_items:
+    - susy
+    - breakpoint

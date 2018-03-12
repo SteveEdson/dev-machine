@@ -1,0 +1,19 @@
+---
+
+- name: Enable text selection within quicklook
+  osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true state=present
+
+- name: Show hidden files in finder by default
+  osx_defaults: domain=com.apple.finder key=AppleShowAllFiles type=bool value=true state=present
+
+- name: Reduce keyboard key repeat delay
+  osx_defaults: key=InitialKeyRepeat type=int value=25 state=present
+
+- name: Increase keyboard key repeat speed
+  osx_defaults: key=KeyRepeat type=int value=2
+
+- name: Set cron shell
+  cron: name=SHELL env=yes value=/bin/zsh
+
+- name: Set cron path
+  cron: name=PATH env=yes value=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
