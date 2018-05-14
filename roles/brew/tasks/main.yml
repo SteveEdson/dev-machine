@@ -47,6 +47,7 @@
     - exa
     - m-cli
     - ripgrep
+    - bat
 
 - name: Install Brew Cask packages
   ignore_errors: yes
