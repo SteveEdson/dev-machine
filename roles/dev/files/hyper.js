@@ -4,7 +4,7 @@ module.exports = {
         fontSize: 16,
 
         // font family with optional fallbacks
-        fontFamily: '"Meslo LG M DZ for Powerline", monospace',
+        fontFamily: '"FiraCode-Light", monospace',
 
         // terminal cursor background color (hex)
         //cursorColor: '#F81CE5',
@@ -24,7 +24,9 @@ module.exports = {
         css: '',
 
         // custom css to embed in the terminal window
-        termCSS: '',
+        termCSS: `
+        x-screen x-row { font-variant-ligatures: contextual; }
+        `,
 
         // custom padding (css format, i.e.: `top right bottom left`)
 //        padding: '12px 14px',
@@ -57,11 +59,7 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: [
-        'hypertheme',
-        'hyperline',
-        'hyperterm-firewatch'
-    ],
+    plugins: ["hyper-material-theme"],
 
     // in development, you can create a directory under
     // `~/.hyperterm_plugins/local/` and include it here
