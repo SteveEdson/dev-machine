@@ -44,6 +44,7 @@
       octal: "stat -f '%A %a %N'"
       ip: "curl icanhazip.com"
       pg: phonegap
+      "docker-gc": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc -e REMOVE_VOLUMES=1 spotify/docker-gc"
 
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
