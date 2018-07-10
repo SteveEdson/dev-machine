@@ -21,4 +21,4 @@
     - np
     - cost-of-modules
     - insect
-    - version-bumper
+    - git-version-bumper
