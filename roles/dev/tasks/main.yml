@@ -125,6 +125,3 @@
     
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
-
-- name: Send Pushover notification
-  local_action: pushover app_token="a6abcp5wtcksvjrehgpitw255wcfzb" user_key="Pu6dhGQJuo6feH5Bf0JSwWZIfyAqIu" msg="{{ ansible_nodename }} has completed"
