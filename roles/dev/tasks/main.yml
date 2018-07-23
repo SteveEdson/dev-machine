@@ -5,8 +5,23 @@
     name: windows
   when: "ansible_os_family == 'Windows'"
 
+- name: Create ack config file if it doesn't exist
+  file:
+    path: ~/.ackrc
+    state: touch
+
+- name: Ack config file
+  lineinfile: dest=~/.ackrc line='{{ item }}'
+  with_items:
+    - "--ignore-directory=is:node_modules"
+    - "--ignore-directory=is:bower_components"
+    - "--type-set=sass:ext:scss,sass"
+    - "--type-set=scss:ext:scss,sass"
+    - "--type-set=markdown:ext:md,markdown"
+    - "--type-set=md:ext:md,markdown"
+
 - name: Create system aliases
-  lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"' insertafter='# aliases'
+  lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"'
   with_dict: "{{aliases}}"
   vars:
     aliases:
