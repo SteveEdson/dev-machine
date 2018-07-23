@@ -48,6 +48,7 @@
     - m-cli
     - ripgrep
     - bat
+    - ack
 
 - name: Install Brew Cask packages
   ignore_errors: yes
