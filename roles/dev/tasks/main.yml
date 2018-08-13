@@ -34,7 +34,7 @@
       gc: "git commit -m"
       gs: git status
       gpl: git pull
-      gp: git push  
+      gp: git push
       gpt: "git push --tags"
       gph: git push
       update: "git push && gcos && gmd && git push && gcop && gms && git push && gcod"
@@ -107,12 +107,12 @@
     - valet_html_driver.stat.islnk == false
 
 - name: Make sure PIP is installed
-  easy_install: name=pip state=latest
+  easy_install: name=pip state=present
   # become: yes
   ignore_errors: yes
 
 - name: Install PIP packages
-  pip: name={{ item }} state=latest
+  pip: name={{ item }} state=present
   # become: yes
   extra_args: --user
   ignore_errors: yes
@@ -120,7 +120,7 @@
     - tldr
     - proselint
     - whereami
-    
+
 #- name: Install PIP 3 packages
 #  pip: name={{ item }} state=present executable=pip3
 #  with_items:
@@ -128,8 +128,8 @@
 
 - name: Install global Composer packages
   ignore_errors: yes
-  composer: 
-    command: "require" 
+  composer:
+    command: "require"
     working_dir: "{{ ansible_env.HOME }}/.composer"
     no_dev: no
     arguments: "{{ item.name }} {% if 'version' in item %}{{ item.version }}{% endif %}"
@@ -137,6 +137,6 @@
     - { name: "laravel/installer" }
     - { name: "laravel/homestead" }
     - { name: "laravel/valet", version: "dev-master" }
-    
+
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
