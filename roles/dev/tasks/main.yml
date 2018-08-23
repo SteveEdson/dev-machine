@@ -140,3 +140,27 @@
 
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
+
+- name: Set xdebug remote enable
+  lineinfile:
+    dest: /usr/local/etc/php/7.2/php.ini
+    regexp: "xdebug.remote_enable="
+    line: "xdebug.remote_enable=1"
+
+- name: Set xdebug remote host
+  lineinfile:
+    dest: /usr/local/etc/php/7.2/php.ini
+    regexp: "xdebug.remote_host="
+    line: "xdebug.remote_host=localhost"
+
+- name: Set xdebug remote port
+  lineinfile:
+    dest: /usr/local/etc/php/7.2/php.ini
+    regexp: "xdebug.remote_port="
+    line: "xdebug.remote_port=9000"
+
+- name: Set xdebug remote handler
+  lineinfile:
+    dest: /usr/local/etc/php/7.2/php.ini
+    regexp: "xdebug.remote_handler="
+    line: "xdebug.remote_handler=dbgp"
