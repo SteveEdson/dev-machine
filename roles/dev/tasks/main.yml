@@ -65,6 +65,7 @@
       cat: bat
       ping: 'prettyping --nolegend'
       preview: "fzf --preview 'bat --color \"always\" {}'"
+      du: "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
