@@ -50,6 +50,7 @@
     - bat
     - ack
     - prettyping
+    - fzf
 
 - name: Install Brew Cask packages
   ignore_errors: yes
