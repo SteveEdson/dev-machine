@@ -64,6 +64,7 @@
       vb: "version-bumper"
       cat: bat
       ping: 'prettyping --nolegend'
+      preview: "fzf --preview 'bat --color \"always\" {}'"
 
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
