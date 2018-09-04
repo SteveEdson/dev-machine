@@ -1,0 +1,9 @@
+---
+dist: trusty
+
+language: python
+python: "2.7"
+
+script:
+  - pip2 install ansible-lint
+  - ansible-lint playbook.yml
