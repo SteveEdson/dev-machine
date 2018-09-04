@@ -105,8 +105,8 @@
     - atom
     - dash
 
-- name: Setup launch agents for brew installed services
-  command: launchctl load {{ ansible_env.HOME }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+- name: Start brew services
+  command: brew services start {{ item }}
   with_items:
     - mysql
     - beanstalkd
