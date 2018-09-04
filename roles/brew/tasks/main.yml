@@ -58,7 +58,7 @@
     - alfred
     - vagrant
     - phpstorm
-    - google-chrome
+    - google-chrome-beta
     - firefox
     - iterm2
     - sequel-pro
@@ -87,6 +87,7 @@
   with_items:
     - node
     - php71-mcrypt
+    - google-chrome
 
 - name: ZSH brew config
   lineinfile: dest=~/.zshrc line='{{ item }}'
