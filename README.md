@@ -1,4 +1,4 @@
-# dev-machine
+# dev-machine [![Build Status](https://travis-ci.org/SteveEdson/dev-machine.svg?branch=master)](https://travis-ci.org/SteveEdson/dev-machine)
 
 For more information, see my [blog post](https://steveedson.co.uk/ansible/dev-machine).
 
