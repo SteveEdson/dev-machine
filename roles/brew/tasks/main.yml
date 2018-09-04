@@ -16,8 +16,6 @@
   homebrew: name={{ item }} state=present
   with_items:
     - php
-    - php-code-sniffer
-    - phpmd
     - speedtest_cli
     - httpie
     - exiftool
