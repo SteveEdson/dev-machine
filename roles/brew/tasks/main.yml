@@ -15,71 +15,77 @@
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present
   with_items:
-    - php
-    - speedtest_cli
-    - httpie
-    - exiftool
-    - git-extras
-    - pandoc
-    - tree
-    - composer
-    - node
-    - q
-    - git-cal
-    - aria2
-    - jq
-    - diff-so-fancy
-    - beanstalkd
+    - ack
     - antigen
+    - aria2
     - autoenv
-    - yarn
+    - bat
+    - beanstalkd
+    - caddy
+    - colordiff
+    - composer
+    - diff-so-fancy
+    - doctl
+    - exa
+    - exiftool
+    - fzf
+    - git-cal
+    - git-extras
+    - httpie
+    - hub
+    - jq
+    - m-cli
+    - mas
+    - node
+    - pandoc
+    - php
+    - prettyping
     - python
     - python3
-    - doctl
-    - mas
-    - hub
-    - textql
-    - colordiff
-    - caddy
-    - exa
-    - m-cli
+    - q
     - ripgrep
-    - bat
-    - ack
-    - prettyping
-    - fzf
+    - speedtest_cli
+    - textql
+    - tree
+    - yarn
 
 - name: Install Brew Cask packages
   ignore_errors: yes
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - fluor
-    - java
     - alfred
-    - vagrant
-    - phpstorm
-    - google-chrome-beta
-    - firefox
-    - iterm2
-    - sequel-pro
-    - qlstephen
-    - qlmarkdown
-    - quicklook-csv
-    - dropbox
-    - marked
-    - licecap
-    - caret
-    - diffmerge
+    - android-sdk
     - bitbar
-    - slack
+    - cheatsheet
+    - diffmerge
     - disk-inventory-x
     - docker
-    - hyper
-    - sdformatter
+    - dropbox
     - etcher
+    - firefox
+    - fluor
+    - font-firacode-nerd-font
+    - font-hack-nerd-font
+    - gitup
+    - google-chrome-beta
+    - hyper
+    - iterm2
+    - java
+    - kap
+    - licecap
+    - mark-text
+    - marked
     - mjml
-    - android-sdk
+    - phpstorm
+    - qlmarkdown
+    - qlstephen
+    - quicklook-csv
+    - sdformatter
+    - sequel-pro
+    - slack
+    - vagrant
     - visual-studio-code
+    - whatsapp
 
 - name: Remove Brew Packages
   ignore_errors: yes
@@ -98,7 +104,6 @@
   ignore_errors: yes
   homebrew_cask: name={{ item }} state=absent
   with_items:
-    - metabase-app
     - franz
     - hosts
     - imageoptim
