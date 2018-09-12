@@ -86,9 +86,7 @@
   ignore_errors: yes
   homebrew: name={{ item }} state=absent
   with_items:
-    - node
     - php71-mcrypt
-    - google-chrome
 
 - name: ZSH brew config
   lineinfile: dest=~/.zshrc line='{{ item }}'
