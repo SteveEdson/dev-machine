@@ -99,7 +99,6 @@
   homebrew_cask: name={{ item }} state=absent
   with_items:
     - franz
-    - hosts
     - imageoptim
     - atom
     - dash
