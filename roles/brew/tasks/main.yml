@@ -31,6 +31,7 @@
     - jq
     - m-cli
     - mas
+    - mysql
     - node
     - pandoc
     - php
