@@ -3,27 +3,51 @@
   register: vscode_result
   changed_when: "'already installed' not in vscode_result.stdout"
   with_items:
+    - aaron-bond.better-comments
+    - alefragnani.Bookmarks
+    - be5invis.vscode-custom-css
+    - berublan.vscode-log-viewer
+    - bierner.emojisense
+    - carlosriveroib.theme-bluloco-dark-operator-mono
+    - chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
     - DavidAnson.vscode-markdownlint
-    - HookyQR.beautify
-    - PeterJausovec.vscode-docker
     - daylerees.rainglow
     - dbaeumer.vscode-eslint
+    - dracula-theme.theme-dracula
+    - eamodio.gitlens
+    - EditorConfig.EditorConfig
     - eg2.vscode-npm-script
+    - fatihacet.gitlab-workflow
     - felipecaputo.git-project-manager
     - felixfbecker.php-debug
     - felixfbecker.php-intellisense
     - felixfbecker.php-pack
+    - fmoronzirfas.open-in-marked
+    - formulahendry.auto-rename-tag
+    - hnw.vscode-auto-open-markdown-preview
+    - HookyQR.beautify
+    - ilich8086.launcher
+    - JakeWilson.vscode-cdnjs
     - kenhowardpdx.vscode-gist
     - kisstkondoros.vscode-gutter-preview
+    - leveluptutorials.theme-levelup
+    - lfurzewaddock.vscode-opn
     - lkytal.quicktask
     - marcostazi.VS-code-drupal
+    - mariorodeghiero.vue-theme
     - ms-vscode.csharp
     - msjsdiag.debugger-for-chrome
     - octref.vetur
+    - PeterJausovec.vscode-docker
+    - pflannery.vscode-versionlens
     - pnp.polacode
     - robertohuertasm.vscode-icons
     - ryannaddy.laravel-artisan
     - sachittandukar.laravel-5-snippets
+    - shyykoserhiy.vscode-spotify
+    - tht13.html-preview-vscode
     - wayou.vscode-todo-highlight
     - whatwedo.twig
+    - wix.vscode-import-cost
     - zhuangtongfa.Material-theme
+    - ziyasa  l.vscode-open-in-github
