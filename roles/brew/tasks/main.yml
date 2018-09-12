@@ -7,11 +7,6 @@
   cron: name="brew cleanup" special_time="monthly"
         job="/usr/local/bin/brew cleanup"
 
-- name: Tap homebrew formulas
-  homebrew_tap: name={{ item }} state=present
-  with_items:
-    - homebrew/php
-
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present
   with_items:
@@ -67,7 +62,7 @@
     - font-firacode-nerd-font
     - font-hack-nerd-font
     - gitup
-    - google-chrome-beta
+    - google-chrome
     - hyper
     - iterm2
     - java
