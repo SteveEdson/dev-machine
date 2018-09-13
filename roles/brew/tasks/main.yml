@@ -31,7 +31,7 @@
     - jq
     - m-cli
     - mas
-    - mysql
+    - mysql@5.7
     - node
     - pandoc
     - php
@@ -60,8 +60,10 @@
     - etcher
     - firefox
     - fluor
-    - font-firacode-nerd-font
-    - font-hack-nerd-font
+    - homebrew/cask-fonts/font-firacode-nerd-font
+    - homebrew/cask-fonts/font-firacode-nerd-font-mono
+    - homebrew/cask-fonts/font-firamono-nerd-font
+    - homebrew/cask-fonts/font-firamono-nerd-font-mono
     - gitup
     - google-chrome
     - hyper
@@ -106,5 +108,5 @@
 - name: Start brew services
   command: brew services start {{ item }}
   with_items:
-    - mysql
+    - mysql@5.7
     - beanstalkd
