@@ -10,6 +10,7 @@
     - bierner.emojisense
     - carlosriveroib.theme-bluloco-dark-operator-mono
     - chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
+    - christian-kohler.npm-intellisense
     - DavidAnson.vscode-markdownlint
     - daylerees.rainglow
     - dbaeumer.vscode-eslint
@@ -50,4 +51,4 @@
     - whatwedo.twig
     - wix.vscode-import-cost
     - zhuangtongfa.Material-theme
-    - ziyasa  l.vscode-open-in-github
+    - ziyasal.vscode-open-in-github
