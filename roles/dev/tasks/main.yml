@@ -80,6 +80,8 @@
   with_items:
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
     - "antigen bundle zsh-users/zsh-syntax-highlighting"
+    - "export NVM_AUTO_USE=true"
+    - "antigen bundle lukechilds/zsh-nvm"
     - "antigen apply"
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
