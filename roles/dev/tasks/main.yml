@@ -66,6 +66,7 @@
       ping: 'prettyping --nolegend'
       preview: "fzf --preview 'bat --color \"always\" {}'"
       du: "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+      da: "docker run mplatform/mquery $2"
 
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
