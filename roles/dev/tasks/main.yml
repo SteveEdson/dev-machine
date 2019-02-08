@@ -122,7 +122,6 @@
 - name: Install PIP packages
   pip: name={{ item }} state=present
   # become: yes
-  extra_args: --user
   ignore_errors: yes
   with_items:
     - tldr

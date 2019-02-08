@@ -1,6 +1,10 @@
 ---
 
 - name: Run this Playbook every two hours
-  cron: name="Run Ansible playbook" hour="*/2" minute="0"
-        job="source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
-
+  cron: 
+    name: "Run Ansible playbook" 
+    hour: "*/2" 
+    minute: "0"
+    job: "source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
+    user: "steveedson"
+    cron_file: ansible
