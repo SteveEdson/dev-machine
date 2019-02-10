@@ -68,7 +68,7 @@
       du: "ncdu --color dark -rr -x --exclude .git --exclude node_modules"
       da: "docker run mplatform/mquery $2"
       docui: "docker run --rm -itv /var/run/docker.sock:/var/run/docker.sock skanehira/docui"
-
+      ha: hass-cli
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
 #  register: npm_dir_exists
@@ -128,10 +128,10 @@
     - proselint
     - whereami
 
-#- name: Install PIP 3 packages
-#  pip: name={{ item }} state=present executable=pip3
-#  with_items:
-#    - gitsome
+- name: Install PIP 3 packages
+ pip: name={{ item }} state=present executable=pip3
+ with_items:
+   - homeassistant-cli
 
 - name: Install global Composer packages
   ignore_errors: yes
