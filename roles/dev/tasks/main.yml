@@ -69,6 +69,7 @@
       da: "docker run mplatform/mquery $2"
       docui: "docker run --rm -itv /var/run/docker.sock:/var/run/docker.sock skanehira/docui"
       ha: hass-cli
+      ffsend: "docker run --rm -it -v $PWD:/data timvisee/ffsend"
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
 #  register: npm_dir_exists
