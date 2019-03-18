@@ -91,6 +91,7 @@
     - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
     - 'COMPLETION_WAITING_DOTS="true"'
+    - 'export FZF_DEFAULT_OPTS="--bind=\'ctrl-o:execute(code {})+abort\'"'
 
 - name: Check that Hyper config has been symlinked
   stat: path={{ ansible_env.HOME }}/.hyper.js
