@@ -15,7 +15,6 @@
     - aria2
     - autoenv
     - bat
-    - beanstalkd
     - caddy
     - colordiff
     - composer
@@ -110,4 +109,3 @@
   command: brew services start {{ item }}
   with_items:
     - mysql@5.7
-    - beanstalkd
