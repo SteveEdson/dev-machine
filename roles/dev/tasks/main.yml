@@ -98,7 +98,7 @@
     - 'POWERLEVEL9K_PROMPT_ADD_NEWLINE=true'
     - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)'
     - 'POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=30'
-    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery laravel_version php_version root_indicator public_ip history time dir_writable)'
+    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable battery laravel_version php_version root_indicator public_ip time)'
     - "POWERLEVEL9K_MODE='awesome-fontconfig'"
 
 source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
