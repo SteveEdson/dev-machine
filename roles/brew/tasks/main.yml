@@ -79,7 +79,6 @@
       - homebrew/cask-fonts/font-firamono-nerd-font-mono
       - gitup
       - google-chrome
-      - hyper
       - iterm2
       - java
       - kap
@@ -110,8 +109,7 @@
   with_items:
     - franz
     - imageoptim
-    - atom
-    - dash
+    - hyper
 
 - name: Start brew services
   command: brew services start {{ item }}
