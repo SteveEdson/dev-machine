@@ -88,12 +88,20 @@
     - "export NVM_AUTO_USE=true"
     - "antigen bundle lukechilds/zsh-nvm"
     - "antigen apply"
+    - "export ZSH_THEME=\"powerlevel9k/powerlevel9k\""
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
     - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
     - 'COMPLETION_WAITING_DOTS="true"'
     - 'export FZF_DEFAULT_OPTS="--bind=\'ctrl-o:execute(code {})+abort\'"'
+    - 'POWERLEVEL9K_PROMPT_ADD_NEWLINE=true'
+    - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)'
+    - 'POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=30'
+    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery laravel_version php_version root_indicator public_ip history time dir_writable)'
+    - "POWERLEVEL9K_MODE='awesome-fontconfig'"
+
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 
 - name: Check that Hyper config has been symlinked
   stat: path={{ ansible_env.HOME }}/.hyper.js
