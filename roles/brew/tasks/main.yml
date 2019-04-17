@@ -46,7 +46,7 @@
       - node
       - pandoc
       - powerlevel9k
-      - php73
+      - php
       - prettyping
       - python
       - python3
