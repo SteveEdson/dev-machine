@@ -11,90 +11,93 @@
     name: sambadevi/powerlevel9k
     state: present
 
-- name: Install packages from Homebrew
-  homebrew: name={{ item }} state=present
-  with_items:
-    - ack
-    - antigen
-    - aria2
-    - autoenv
-    - bat
-    - caddy
-    - colordiff
-    - composer
-    - diff-so-fancy
-    - doctl
-    - exa
-    - exiftool
-    - fzf
-    - git-cal
-    - git-extras
-    - httpie
-    - hub
-    - jq
-    - m-cli
-    - mas
-    - mysql@5.7
-    - node
-    - pandoc
-    - powerlevel9k
-    - php
-    - prettyping
-    - python
-    - python3
-    - q
-    - ripgrep
-    - speedtest_cli
-    - textql
-    - tree
-    - yarn
-
-- name: Install Brew Cask packages
-  ignore_errors: yes
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - alfred
-    - android-sdk
-    - bitbar
-    - cheatsheet
-    - diffmerge
-    - disk-inventory-x
-    - docker
-    - dropbox
-    - etcher
-    - firefox
-    - fluor
-    - homebrew/cask-fonts/font-firacode-nerd-font
-    - homebrew/cask-fonts/font-firacode-nerd-font-mono
-    - homebrew/cask-fonts/font-firamono-nerd-font
-    - homebrew/cask-fonts/font-firamono-nerd-font-mono
-    - gitup
-    - google-chrome
-    - hyper
-    - iterm2
-    - java
-    - kap
-    - licecap
-    - mark-text
-    - marked
-    - mjml
-    - phpstorm
-    - qlmarkdown
-    - qlstephen
-    - quicklook-csv
-    - sdformatter
-    - sequel-pro
-    - slack
-    - spotify
-    - vagrant
-    - visual-studio-code
-    - whatsapp
-
 - name: Remove Brew Packages
   ignore_errors: yes
   homebrew: name={{ item }} state=absent
   with_items:
     - php71-mcrypt
+    - php72
+
+- name: Install packages from Homebrew
+  homebrew: 
+    state: present
+    name:
+      - ack
+      - antigen
+      - aria2
+      - autoenv
+      - bat
+      - caddy
+      - colordiff
+      - composer
+      - diff-so-fancy
+      - doctl
+      - exa
+      - exiftool
+      - fzf
+      - git-cal
+      - git-extras
+      - httpie
+      - hub
+      - jq
+      - m-cli
+      - mas
+      - mysql@5.7
+      - node
+      - pandoc
+      - powerlevel9k
+      - php73
+      - prettyping
+      - python
+      - python3
+      - q
+      - ripgrep
+      - speedtest_cli
+      - textql
+      - tree
+      - yarn
+
+- name: Install Brew Cask packages
+  ignore_errors: yes
+  homebrew_cask: 
+    state: present
+    name:
+      - alfred
+      - android-sdk
+      - bitbar
+      - cheatsheet
+      - diffmerge
+      - disk-inventory-x
+      - docker
+      - dropbox
+      - etcher
+      - firefox
+      - fluor
+      - homebrew/cask-fonts/font-firacode-nerd-font
+      - homebrew/cask-fonts/font-firacode-nerd-font-mono
+      - homebrew/cask-fonts/font-firamono-nerd-font
+      - homebrew/cask-fonts/font-firamono-nerd-font-mono
+      - gitup
+      - google-chrome
+      - hyper
+      - iterm2
+      - java
+      - kap
+      - licecap
+      - mark-text
+      - marked
+      - mjml
+      - phpstorm
+      - qlmarkdown
+      - qlstephen
+      - quicklook-csv
+      - sdformatter
+      - sequel-pro
+      - slack
+      - spotify
+      - vagrant
+      - visual-studio-code
+      - whatsapp
 
 - name: ZSH brew config
   lineinfile: dest=~/.zshrc line='{{ item }}'

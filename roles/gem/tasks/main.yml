@@ -18,10 +18,7 @@
   gem: name={{ item }} state=present
   with_items:
     - bundler
-    - jekyll
     - t
-    - sass
-    - compass
     - gist
     - mailcatcher
 
@@ -30,3 +27,7 @@
   with_items:
     - susy
     - breakpoint
+    - jekyll
+    - sass
+    - compass
+  ignore_errors: yes

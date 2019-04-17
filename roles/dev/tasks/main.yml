@@ -83,6 +83,7 @@
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
   with_items:
+    - "export TERM=\"xterm-256color\""
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
     - "antigen bundle zsh-users/zsh-syntax-highlighting"
     - "export NVM_AUTO_USE=true"
@@ -94,14 +95,19 @@
     - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
     - 'COMPLETION_WAITING_DOTS="true"'
-    - 'export FZF_DEFAULT_OPTS="--bind=\'ctrl-o:execute(code {})+abort\'"'
+    - "export FZF_DEFAULT_OPTS=\"--bind='ctrl-o:execute(code {})+abort'\""
     - 'POWERLEVEL9K_PROMPT_ADD_NEWLINE=true'
     - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)'
     - 'POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=30'
     - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable battery laravel_version php_version root_indicator public_ip time)'
     - "POWERLEVEL9K_MODE='awesome-fontconfig'"
+    - "source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
 
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+- name: ZSH Cleanup
+  lineinfile:
+    dest: ~/.zshrc
+    line: "ZSH_THEME=\"agnoster\""
+    state: absent
 
 - name: Check that Hyper config has been symlinked
   stat: path={{ ansible_env.HOME }}/.hyper.js
@@ -132,18 +138,20 @@ source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
   ignore_errors: yes
 
 - name: Install PIP packages
-  pip: name={{ item }} state=present
-  # become: yes
+  pip: 
+    state: present
+    name:
+      - tldr
+      - proselint
+      - whereami
   ignore_errors: yes
-  with_items:
-    - tldr
-    - proselint
-    - whereami
 
 - name: Install PIP 3 packages
- pip: name={{ item }} state=present executable=pip3
- with_items:
-   - homeassistant-cli
+  pip: 
+    state: present
+    executable: pip3
+    name:   
+      - homeassistant-cli
 
 - name: Install global Composer packages
   ignore_errors: yes
@@ -154,8 +162,7 @@ source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
     arguments: "{{ item.name }} {% if 'version' in item %}{{ item.version }}{% endif %}"
   with_items:
     - { name: "laravel/installer" }
-    - { name: "laravel/homestead" }
-    - { name: "laravel/valet", version: "dev-master" }
+    - { name: "laravel/valet" }
 
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
