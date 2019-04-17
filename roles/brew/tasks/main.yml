@@ -6,6 +6,10 @@
 - name: Cleanup brew
   cron: name="brew cleanup" special_time="monthly"
         job="/usr/local/bin/brew cleanup"
+      
+- homebrew_tap:
+    name: sambadevi/powerlevel9k
+    state: present
 
 - name: Install packages from Homebrew
   homebrew: name={{ item }} state=present
@@ -33,6 +37,7 @@
     - mysql@5.7
     - node
     - pandoc
+    - powerlevel9k
     - php
     - prettyping
     - python
