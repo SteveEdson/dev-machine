@@ -83,6 +83,7 @@
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
   with_items:
+    - "source /usr/local/share/antigen/antigen.zsh"
     - "export TERM=\"xterm-256color\""
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
     - "antigen bundle zsh-users/zsh-syntax-highlighting"
@@ -97,9 +98,9 @@
     - 'COMPLETION_WAITING_DOTS="true"'
     - "export FZF_DEFAULT_OPTS=\"--bind='ctrl-o:execute(code {})+abort'\""
     - 'POWERLEVEL9K_PROMPT_ADD_NEWLINE=true'
-    - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)'
+    - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)'
     - 'POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=30'
-    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable battery laravel_version php_version root_indicator public_ip time)'
+    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(dir_writable battery laravel_version php_version root_indicator public_ip)'
     - "POWERLEVEL9K_MODE='awesome-fontconfig'"
     - "source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
 
