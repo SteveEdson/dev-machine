@@ -42,7 +42,7 @@
       - jq
       - m-cli
       - mas
-      - mysql@5.7
+    #   - mysql@5.7
       - node
       - pandoc
       - powerlevel9k
@@ -105,13 +105,14 @@
 
 - name: Remove Brew Cask packages
   ignore_errors: yes
-  homebrew_cask: name={{ item }} state=absent
-  with_items:
-    - franz
-    - imageoptim
-    - hyper
+  homebrew_cask: 
+    state: absent
+    name:
+      - franz
+      - imageoptim
+      - hyper
 
-- name: Start brew services
-  command: brew services start {{ item }}
-  with_items:
-    - mysql@5.7
+# - name: Start brew services
+#   command: brew services start {{ item }}
+#   with_items:
+#     - mysql@5.7
