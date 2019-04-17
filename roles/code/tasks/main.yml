@@ -5,20 +5,24 @@
   with_items:
     - aaron-bond.better-comments
     - alefragnani.Bookmarks
+    - Archety.material-icons
     - be5invis.vscode-custom-css
     - berublan.vscode-log-viewer
     - bierner.emojisense
     - bmewburn.vscode-intelephense-client
-    - carlosriveroib.theme-bluloco-dark-operator-mono
+    - caarlos0.language-prometheus
     - chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
     - christian-kohler.npm-intellisense
     - DavidAnson.vscode-markdownlint
     - daylerees.rainglow
     - dbaeumer.vscode-eslint
+    - dbankier.vscode-gist
     - dracula-theme.theme-dracula
     - eamodio.gitlens
     - EditorConfig.EditorConfig
     - eg2.vscode-npm-script
+    - erik-rosengren.dark-candy
+    - esbenp.prettier-vscode
     - fatihacet.gitlab-workflow
     - felipecaputo.git-project-manager
     - felixfbecker.php-debug
@@ -26,18 +30,25 @@
     - felixfbecker.php-pack
     - fmoronzirfas.open-in-marked
     - formulahendry.auto-rename-tag
+    - formulahendry.docker-explorer
+    - ginfuru.ginfuru-vscode-jekyll-syntax
+    - ginfuru.vscode-jekyll-snippets
     - hnw.vscode-auto-open-markdown-preview
     - HookyQR.beautify
     - ilich8086.launcher
     - JakeWilson.vscode-cdnjs
+    - johnpapa.vscode-peacock
+    - keesschollaart.vscode-home-assistant
     - kenhowardpdx.vscode-gist
     - kisstkondoros.vscode-gutter-preview
     - leveluptutorials.theme-levelup
     - lfurzewaddock.vscode-opn
     - lkytal.quicktask
+    - lukas-tr.materialdesignicons-intellisense
     - marcostazi.VS-code-drupal
     - mariorodeghiero.vue-theme
     - ms-vscode.csharp
+    - ms-vsliveshare.vsliveshare-pack
     - msjsdiag.debugger-for-chrome
     - octref.vetur
     - PeterJausovec.vscode-docker
@@ -48,8 +59,12 @@
     - sachittandukar.laravel-5-snippets
     - shyykoserhiy.vscode-spotify
     - tht13.html-preview-vscode
+    - Shan.code-settings-sync
+    - streetsidesoftware.code-spell-checker
+    - vscode-icons-team.vscode-icons
     - wayou.vscode-todo-highlight
     - whatwedo.twig
     - wix.vscode-import-cost
+    - yzhang.markdown-all-in-one
     - zhuangtongfa.Material-theme
     - ziyasal.vscode-open-in-github
