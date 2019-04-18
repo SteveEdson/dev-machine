@@ -6,11 +6,13 @@
     - aaron-bond.better-comments
     - alefragnani.Bookmarks
     - Archety.material-icons
+    - bajdzis.vscode-database
     - be5invis.vscode-custom-css
     - berublan.vscode-log-viewer
     - bierner.emojisense
     - bmewburn.vscode-intelephense-client
     - caarlos0.language-prometheus
+    - bungcip.better-toml
     - chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
     - christian-kohler.npm-intellisense
     - DavidAnson.vscode-markdownlint
@@ -35,6 +37,7 @@
     - ginfuru.vscode-jekyll-snippets
     - hnw.vscode-auto-open-markdown-preview
     - HookyQR.beautify
+    - hoovercj.vscode-power-mode
     - ilich8086.launcher
     - JakeWilson.vscode-cdnjs
     - johnpapa.vscode-peacock
@@ -47,16 +50,23 @@
     - lukas-tr.materialdesignicons-intellisense
     - marcostazi.VS-code-drupal
     - mariorodeghiero.vue-theme
+    - medzhidov.font-awesome-codes-html
+    - moshfeu.auto-npm-install
+    - ms-kubernetes-tools.vscode-kubernetes-tools
     - ms-vscode.csharp
     - ms-vsliveshare.vsliveshare-pack
+    - ms-vscode.powershell
     - msjsdiag.debugger-for-chrome
     - octref.vetur
     - PeterJausovec.vscode-docker
     - pflannery.vscode-versionlens
     - pnp.polacode
+    - redhat.vscode-yaml
     - ryannaddy.laravel-artisan
     - sachittandukar.laravel-5-snippets
     - shyykoserhiy.vscode-spotify
+    - SonarSource.sonarlint-vscode
+    - thekalinga.bootstrap4-vscode
     - tht13.html-preview-vscode
     - Shan.code-settings-sync
     - streetsidesoftware.code-spell-checker
@@ -65,5 +75,7 @@
     - whatwedo.twig
     - wix.vscode-import-cost
     - yzhang.markdown-all-in-one
+    - Yummygum.city-lights-icon-vsc
+    - yummygum.city-lights-theme
     - zhuangtongfa.Material-theme
     - ziyasal.vscode-open-in-github
