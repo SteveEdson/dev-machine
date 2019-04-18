@@ -1,23 +1,22 @@
 ---
 - name: Ensure nvm is present
-  command: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash creates=~/.atom/packages/{{ item }}/package.json
-
-
+  command: "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash"
+  args:
+      creates: ~/.nvm 
 
 - name: Install NPM packages
-  npm: name={{ item }} state=present global=yes
+  npm: 
+    name: "{{ item }}" 
+    state: present
+    global: yes
   with_items:
-    - electron-prebuilt
     - gulp
     - jspm
     - pm2
     - grunt-cli
     - npm-check-updates
-    - yo
-    - babel
     - plato
     - webpack
-    - susy
     - nativefier
     - vue-cli
     - autochecker
