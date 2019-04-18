@@ -1,22 +1,28 @@
 ---
 - name: Update brew daily
-  cron: name="brew autoupdate" special_time="daily"
-        job="/usr/local/bin/brew update"
+  cron: 
+    name: brew autoupdate" 
+    special_time: "daily"
+    job: "/usr/local/bin/brew update"
 
 - name: Cleanup brew
-  cron: name="brew cleanup" special_time="monthly"
-        job="/usr/local/bin/brew cleanup"
+  cron: 
+    name: "brew cleanup"
+    special_time: "monthly"
+    job: "/usr/local/bin/brew cleanup"
       
-- homebrew_tap:
+- name: Tap powerlevel9k brew repo
+  homebrew_tap:
     name: sambadevi/powerlevel9k
     state: present
 
 - name: Remove Brew Packages
   ignore_errors: yes
-  homebrew: name={{ item }} state=absent
-  with_items:
-    - php71-mcrypt
-    - php72
+  homebrew: 
+    state: absent
+    name:
+      - php71-mcrypt
+      - php72
 
 - name: Install packages from Homebrew
   homebrew: 
