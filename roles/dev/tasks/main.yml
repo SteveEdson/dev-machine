@@ -19,6 +19,7 @@
     - "--type-set=scss:ext:scss,sass"
     - "--type-set=markdown:ext:md,markdown"
     - "--type-set=md:ext:md,markdown"
+    - "--smart-case"
 
 - name: Create system aliases
   lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"'
