@@ -47,8 +47,6 @@
       - hub
       - jq
       - m-cli
-      - mas
-    #   - mysql@5.7
       - node
       - pandoc
       - powerlevel9k
@@ -57,9 +55,6 @@
       - python
       - python3
       - q
-      - ripgrep
-      - speedtest_cli
-      - textql
       - tree
       - yarn
 
@@ -77,7 +72,6 @@
       - dropbox
       - etcher
       - firefox
-      - fluor
       - homebrew/cask-fonts/font-firacode-nerd-font
       - homebrew/cask-fonts/font-firacode-nerd-font-mono
       - homebrew/cask-fonts/font-firamono-nerd-font
@@ -85,11 +79,9 @@
       - gitup
       - google-chrome
       - iterm2
-      - kap
       - licecap
       - mark-text
       - marked
-      - mjml
       - phpstorm
       - qlmarkdown
       - qlstephen
@@ -98,7 +90,6 @@
       - sequel-pro
       - slack
       - spotify
-      - vagrant
       - visual-studio-code
       - whatsapp
 
@@ -106,17 +97,3 @@
   lineinfile: dest=~/.zshrc line='{{ item }}'
   with_items:
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
-
-- name: Remove Brew Cask packages
-  ignore_errors: yes
-  homebrew_cask: 
-    state: absent
-    name:
-      - franz
-      - imageoptim
-      - hyper
-
-# - name: Start brew services
-#   command: brew services start {{ item }}
-#   with_items:
-#     - mysql@5.7

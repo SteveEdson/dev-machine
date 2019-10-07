@@ -111,42 +111,19 @@
     line: "ZSH_THEME=\"agnoster\""
     state: absent
 
-- name: Check that Hyper config has been symlinked
-  stat: path={{ ansible_env.HOME }}/.hyper.js
-  register: hyper_config
-
-- name: Delete old hyperterm file
-  file: path={{ ansible_env.HOME }}/.hyper.js state=absent
-  when:
-    - hyper_config.stat.exists == true
-    - hyper_config.stat.islnk == false
-
-- name: Hyperterm Config
-  file: src={{ playbook_dir }}/roles/dev/files/hyper.js dest={{ ansible_env.HOME }}/.hyper.js state=hard
-
-- name: Check status of Laravel HTML driver file
-  stat: path={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php
-  register: valet_html_driver
-
-- name: Delete old valet driver file if not linked
-  file: path={{ ansible_env.HOME }}/.valet/Drivers/BasicHtmlSuffixValetDriver.php state=absent
-  when:
-    - valet_html_driver.stat.exists == true
-    - valet_html_driver.stat.islnk == false
-
 - name: Make sure PIP is installed
   easy_install: name=pip state=present
   # become: yes
   ignore_errors: yes
 
-- name: Install PIP packages
-  pip: 
-    state: present
-    name:
-      - tldr
-      - proselint
-      - whereami
-  ignore_errors: yes
+# - name: Install PIP packages
+#   pip: 
+#     state: present
+#     name:
+#       - tldr
+#       - proselint
+#       - whereami
+#   ignore_errors: yes
 
 - name: Install PIP 3 packages
   pip: 

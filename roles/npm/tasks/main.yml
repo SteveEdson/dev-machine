@@ -10,19 +10,9 @@
     state: present
     global: yes
   with_items:
-    - gulp
-    - jspm
     - pm2
-    - grunt-cli
     - npm-check-updates
-    - plato
-    - webpack
     - nativefier
     - vue-cli
-    - autochecker
-    - psi
-    - a11y
     - np
-    - cost-of-modules
-    - insect
     - git-version-bumper
