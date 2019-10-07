@@ -147,13 +147,13 @@
 
 - name: Set xdebug remote enable
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini
+    dest: /usr/local/etc/php/7.2/php.ini #todo this should be pulled in dynamically from a previous task
     regexp: "xdebug.remote_enable="
     line: "xdebug.remote_enable=1"
 
 - name: Set xdebug remote host
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini
+    dest: /usr/local/etc/php/7.2/php.ini #todo same for this and the two below
     regexp: "xdebug.remote_host="
     line: "xdebug.remote_host=localhost"
 
