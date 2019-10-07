@@ -145,26 +145,30 @@
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
 
+- name: get php ini location
+  command: php -r "echo php_ini_loaded_file();"
+  register: php_ini_location
+
 - name: Set xdebug remote enable
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini #todo this should be pulled in dynamically from a previous task
+    dest: "{{ php_ini_location.stdout }}"
     regexp: "xdebug.remote_enable="
     line: "xdebug.remote_enable=1"
 
 - name: Set xdebug remote host
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini #todo same for this and the two below
+    dest: "{{ php_ini_location.stdout }}"
     regexp: "xdebug.remote_host="
     line: "xdebug.remote_host=localhost"
 
 - name: Set xdebug remote port
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini
+    dest: "{{ php_ini_location.stdout }}"
     regexp: "xdebug.remote_port="
     line: "xdebug.remote_port=9000"
 
 - name: Set xdebug remote handler
   lineinfile:
-    dest: /usr/local/etc/php/7.2/php.ini
+    dest: "{{ php_ini_location.stdout }}"
     regexp: "xdebug.remote_handler="
     line: "xdebug.remote_handler=dbgp"
