@@ -64,13 +64,13 @@
     state: present
     name:
       - alfred
+      - balenaetcher
       - bitbar
       - cheatsheet
       - diffmerge
       - disk-inventory-x
       - docker
       - dropbox
-      - etcher
       - firefox
       - homebrew/cask-fonts/font-firacode-nerd-font
       - homebrew/cask-fonts/font-firacode-nerd-font-mono
