@@ -4,10 +4,10 @@
   roles:
     - base
     - git
+    - brew
     - dev
     - mac
     - gem
-    - brew
-    - code
+    # - code
     - npm
   user: steveedson
