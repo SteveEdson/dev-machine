@@ -141,7 +141,6 @@
     arguments: "{{ item.name }} {% if 'version' in item %}{{ item.version }}{% endif %}"
   with_items:
     - { name: "laravel/installer" }
-    - { name: "laravel/valet" }
 
 - name: Copy script to convert pfx files
   file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
