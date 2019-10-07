@@ -85,6 +85,7 @@
 - name: ZSH Config
   lineinfile: dest=~/.zshrc line='{{ item }}'
   with_items:
+    - "DEFAULT_USER=steve"
     - "source /usr/local/share/antigen/antigen.zsh"
     - "export TERM=\"xterm-256color\""
     - "source $(brew --prefix)/share/antigen/antigen.zsh"
