@@ -28,8 +28,8 @@
     - { name: 'format.pretty', value: "oneline" }
     - { name: 'merge.tool', value: 'diffmerge' }
     - { name: 'mergetool.diffmerge.cmd', value: 'diffmerge --merge --result="$MERGED" "$LOCAL" "$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\"' }
-    - { name: 'mergetool.diffmerge.trustExitCode', value: true }
+    - { name: 'mergetool.diffmerge.trustExitCode', value: 'true' }
     - { name: 'push.default', value: "simple" }
-    - { name: 'push.followTags', value: true }
+    - { name: 'push.followTags', value: 'true' }
     - { name: 'tag.sort', value: 'version:refname' }
-    - { name: 'pull.rebase', value: true }
+    - { name: 'pull.rebase', value: 'true' }
