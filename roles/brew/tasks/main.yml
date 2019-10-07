@@ -69,7 +69,6 @@
     state: present
     name:
       - alfred
-      - android-sdk
       - bitbar
       - cheatsheet
       - diffmerge
@@ -86,7 +85,6 @@
       - gitup
       - google-chrome
       - iterm2
-      - java
       - kap
       - licecap
       - mark-text
