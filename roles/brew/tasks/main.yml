@@ -1,16 +1,16 @@
 ---
 - name: Update brew daily
-  cron: 
-    name: brew autoupdate" 
+  cron:
+    name: brew autoupdate"
     special_time: "daily"
     job: "/usr/local/bin/brew update"
 
 - name: Cleanup brew
-  cron: 
+  cron:
     name: "brew cleanup"
     special_time: "monthly"
     job: "/usr/local/bin/brew cleanup"
-      
+
 - name: Tap powerlevel9k brew repo
   homebrew_tap:
     name: sambadevi/powerlevel9k
@@ -18,14 +18,14 @@
 
 - name: Remove Brew Packages
   ignore_errors: yes
-  homebrew: 
+  homebrew:
     state: absent
     name:
       - php71-mcrypt
       - php72
 
 - name: Install packages from Homebrew
-  homebrew: 
+  homebrew:
     state: present
     name:
       - ack
@@ -60,7 +60,7 @@
 
 - name: Install Brew Cask packages
   ignore_errors: yes
-  homebrew_cask: 
+  homebrew_cask:
     state: present
     name:
       - alfred

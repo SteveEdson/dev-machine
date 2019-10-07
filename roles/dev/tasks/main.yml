@@ -23,7 +23,7 @@
 
 - name: Create system aliases
   lineinfile: dest=~/.zshrc line='alias {{ item.key }}=\"{{ item.value }}\"'
-  with_dict: "{{aliases}}"
+  with_dict: "{{ aliases }}"
   vars:
     aliases:
       gcod: "git checkout development"
@@ -61,7 +61,8 @@
       ip: "curl icanhazip.com"
       pg: phonegap
       "docker-gc": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc -e REMOVE_VOLUMES=1 spotify/docker-gc"
-      lg: "git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(r) —— %C(bold blue)%an%C(r): %C(white)%s%C(r) %C(dim white) %C(bold green)(%ar)%C(r) %C(bold yellow)%d%C(r)' --all"
+      lg: >
+        "git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(r) —— %C(bold blue)%an%C(r): %C(white)%s%C(r) %C(dim white) %C(bold green)(%ar)%C(r) %C(bold yellow)%d%C(r)' --all"
       vb: "version-bumper"
       cat: bat
       ping: 'prettyping --nolegend'
@@ -72,7 +73,7 @@
       ha: hass-cli
       ffsend: "docker run --rm -it -v $PWD:/data timvisee/ffsend"
       gcf: "git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $2 | zip changed-$2.zip -@"
-      
+
 #- name: Check if global npm directory exists
 #  stat: path={{ ansible_env.HOME }}/.npm_packages
 #  register: npm_dir_exists
@@ -117,7 +118,7 @@
   ignore_errors: yes
 
 # - name: Install PIP packages
-#   pip: 
+#   pip:
 #     state: present
 #     name:
 #       - tldr
@@ -126,10 +127,10 @@
 #   ignore_errors: yes
 
 - name: Install PIP 3 packages
-  pip: 
+  pip:
     state: present
     executable: pip3
-    name:   
+    name:
       - homeassistant-cli
 
 - name: Install global Composer packages
