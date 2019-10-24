@@ -5,4 +5,4 @@
     name: "Run Ansible playbook"
     hour: "*/2"
     minute: "0"
-    job: "source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
+    job: "exec /usr/bin/zsh; source {{ ansible_env.HOME }}/.zshrc; cd {{ playbook_dir }} && git pull && ./ansible.sh"
