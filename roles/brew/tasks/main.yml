@@ -11,30 +11,25 @@
     special_time: "monthly"
     job: "/usr/local/bin/brew cleanup"
 
-- name: Tap powerlevel9k brew repo
+- name: Tap brew repos
   homebrew_tap:
-    name: sambadevi/powerlevel9k
+    name: 
+      - heroku/brew
+      - homebrew/bundle
+      - homebrew/cask
+      - homebrew/cask-fonts
+      - nicoverbruggen/cask
+      - romkatv/powerlevel10k
     state: present
-
-- name: Remove Brew Packages
-  ignore_errors: yes
-  homebrew:
-    state: absent
-    name:
-      - php71-mcrypt
-      - php72
 
 - name: Install packages from Homebrew
   homebrew:
     state: present
     name:
+      - awscli
       - ack
-      - antigen
       - aria2
-      - autoenv
       - bat
-      - caddy
-      - colordiff
       - composer
       - diff-so-fancy
       - doctl
@@ -43,18 +38,21 @@
       - fzf
       - git-cal
       - git-extras
+      - gh
       - httpie
       - hub
-      - jq
-      - m-cli
+      - mackup
+      - mas
       - node
       - pandoc
-      - powerlevel9k
+      - heroku/brew/heroku
+      - powerlevel9kromkatv/powerlevel10k/powerlevel10k
       - php
       - prettyping
       - python
       - python3
       - q
+      - trash
       - tree
       - yarn
 
@@ -63,38 +61,31 @@
   homebrew_cask:
     state: present
     name:
-      - alfred
-      - balenaetcher
-      - bitbar
-      - cheatsheet
-      - diffmerge
+      - dbngin
+      - discord
+      - font-fira-mono-for-powerline
       - disk-inventory-x
       - docker
       - dropbox
       - firefox
-      - homebrew/cask-fonts/font-firacode-nerd-font
-      - homebrew/cask-fonts/font-firacode-nerd-font-mono
-      - homebrew/cask-fonts/font-firamono-nerd-font
-      - homebrew/cask-fonts/font-firamono-nerd-font-mono
       - gitup
+      - github
       - google-chrome
       - iterm2
-      - licecap
-      - mark-text
+      - mimestream
       - marked
       - notion
+      - nordvpn
+      - paw
       - phpstorm
-      - qlmarkdown
-      - qlstephen
-      - quicklook-csv
-      - sdformatter
-      - sequel-pro
+      - phpmon
+      - plex
+      - ray
+      - raycast
       - slack
       - spotify
+      - tableplus
+      - telegram-desktop
+      - transmit
       - visual-studio-code
       - whatsapp
-
-- name: ZSH brew config
-  lineinfile: dest=~/.zshrc line='{{ item }}'
-  with_items:
-    - "source $(brew --prefix)/share/antigen/antigen.zsh"

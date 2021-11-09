@@ -1,7 +1,0 @@
-- name: Install Android Cask packages
-  ignore_errors: yes
-  homebrew_cask: 
-    state: present
-    name:
-      - android-sdk
-      - java

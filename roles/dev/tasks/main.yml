@@ -15,10 +15,12 @@
   with_items:
     - "--ignore-directory=is:node_modules"
     - "--ignore-directory=is:bower_components"
+    - "--ignore-directory=is:vendor"
     - "--type-set=sass:ext:scss,sass"
     - "--type-set=scss:ext:scss,sass"
     - "--type-set=markdown:ext:md,markdown"
     - "--type-set=md:ext:md,markdown"
+    - "--type-set=vue:ext:vue"
     - "--smart-case"
 
 - name: Create system aliases
@@ -26,32 +28,32 @@
   with_dict: "{{ aliases }}"
   vars:
     aliases:
+      a: "php artisan"
+      fresh: "php artisan migrate:fresh --seed"
+      seed: "php artisan db:seed"
+      cfresh: "rm -rf vendor/ composer.lock && composer i"
+      nfresh: "rm -rf node_modules/ package-lock.json && yarn install"
+      gb: "git branch"
+      gc: "git checkout"
+      amend: "git add . && git commit --amend --no-edit"
+      commit: "git add . && git commit -m"
+      p: "pest"
       gcod: "git checkout development"
       gcos: "git checkout staging"
       gcop: "git checkout production"
       gmd: "git merge development"
       gms: "git merge staging"
       gmp: "git merge production"
-      gc: "git commit -m"
+      gco: "git commit -m"
       gs: git status
       gpl: git pull
       gp: git push
       gpt: "git push --tags"
-      gph: git push
       update: "git push && gcos && gmd && git push && gcop && gms && git push && gcod"
       bu: brew update
+      bug: brew upgrade
       art: php artisan
-      derpal: drupal
-      derp: drupal
-      tweet: t tweet
-      tweets: t timeline -n 100
-      docker_clean_images: 'docker rmi \$(docker images -a --filter=dangling=true -q) --force'
-      docker_clean_containers: 'docker rm -v \$(docker ps -a -q -f status=exited)'
-      docker_clean_volumes: 'docker volume rm \$(docker volume ls -qf dangling=true)'
-      docker_clean: docker_clean_images; docker_clean_containers; docker_clean_volumes
-      time_estimate: 'docker run --rm -v \$(pwd):/code khor/git-hours'
       git: hub
-      wherefiles: "lsof | awk '{ print $2; }' | uniq -c | sort -rn | head"
       ls: exa
       copy_ssh: "cat ~/.ssh/id_rsa.pub | pbcopy"
       nah: "git reset --hard;git clean -df"
@@ -59,8 +61,6 @@
       chrome: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
       octal: "stat -f '%A %a %N'"
       ip: "curl icanhazip.com"
-      pg: phonegap
-      "docker-gc": "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc -e REMOVE_VOLUMES=1 spotify/docker-gc"
       lg: "git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(r) —— %C(bold blue)%an%C(r): %C(white)%s%C(r) %C(dim white) %C(bold green)(%ar)%C(r) %C(bold yellow)%d%C(r)' --all"
       vb: "version-bumper"
       cat: bat
@@ -86,26 +86,16 @@
   lineinfile: dest=~/.zshrc line='{{ item }}'
   with_items:
     - "DEFAULT_USER=steve"
-    - "source /usr/local/share/antigen/antigen.zsh"
-    - "export TERM=\"xterm-256color\""
-    - "source $(brew --prefix)/share/antigen/antigen.zsh"
-    - "antigen bundle zsh-users/zsh-syntax-highlighting"
     - "export NVM_AUTO_USE=true"
-    - "antigen bundle lukechilds/zsh-nvm"
-    - "antigen apply"
-    - "export ZSH_THEME=\"powerlevel9k/powerlevel9k\""
+    - "autoload -Uz compinit && compinit"
+    - "export ZSH_THEME=\"minimal\""
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
     - 'export PATH="$PATH:\$(yarn global bin)"'
     - 'export PATH=$PATH:vendor/bin'
-    - 'COMPLETION_WAITING_DOTS="true"'
     - "export FZF_DEFAULT_OPTS=\"--bind='ctrl-o:execute(code {})+abort'\""
-    - 'POWERLEVEL9K_PROMPT_ADD_NEWLINE=true'
-    - 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir)'
-    - 'POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=30'
-    - 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs dir_writable battery laravel_version php_version root_indicator)'
-    - "POWERLEVEL9K_MODE='awesome-fontconfig'"
-    - "source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
+    - "source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme"
+    - "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
 
 - name: ZSH Cleanup
   lineinfile:
@@ -113,19 +103,10 @@
     line: "ZSH_THEME=\"agnoster\""
     state: absent
 
-- name: Make sure PIP is installed
-  easy_install: name=pip state=present
+- name: Make sure PIP3 is installed
+  easy_install: name=pip3 state=present
   # become: yes
   ignore_errors: yes
-
-# - name: Install PIP packages
-#   pip:
-#     state: present
-#     name:
-#       - tldr
-#       - proselint
-#       - whereami
-#   ignore_errors: yes
 
 - name: Install PIP 3 packages
   pip:
@@ -136,41 +117,10 @@
 
 - name: Install global Composer packages
   ignore_errors: yes
-  composer:
+  community.general.composer:
     command: "require"
     working_dir: "{{ ansible_env.HOME }}/.composer"
     no_dev: no
     arguments: "{{ item.name }} {% if 'version' in item %}{{ item.version }}{% endif %}"
   with_items:
     - { name: "laravel/installer" }
-
-- name: Copy script to convert pfx files
-  file: src={{ playbook_dir }}/roles/dev/files/convert-pfx.sh dest=/usr/local/bin/convert-pfx state=hard mode=u+x
-
-- name: get php ini location
-  command: php -r "echo php_ini_loaded_file();"
-  register: php_ini_location
-
-- name: Set xdebug remote enable
-  lineinfile:
-    dest: "{{ php_ini_location.stdout }}"
-    regexp: "xdebug.remote_enable="
-    line: "xdebug.remote_enable=1"
-
-- name: Set xdebug remote host
-  lineinfile:
-    dest: "{{ php_ini_location.stdout }}"
-    regexp: "xdebug.remote_host="
-    line: "xdebug.remote_host=localhost"
-
-- name: Set xdebug remote port
-  lineinfile:
-    dest: "{{ php_ini_location.stdout }}"
-    regexp: "xdebug.remote_port="
-    line: "xdebug.remote_port=9000"
-
-- name: Set xdebug remote handler
-  lineinfile:
-    dest: "{{ php_ini_location.stdout }}"
-    regexp: "xdebug.remote_handler="
-    line: "xdebug.remote_handler=dbgp"
