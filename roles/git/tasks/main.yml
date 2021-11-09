@@ -32,4 +32,4 @@
     - { name: 'push.default', value: "simple" }
     - { name: 'push.followTags', value: 'true' }
     - { name: 'tag.sort', value: 'version:refname' }
-    - { name: 'pull.rebase', value: 'true' }
+    - { name: 'pull.rebase', value: 'false' }
