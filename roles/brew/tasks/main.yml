@@ -46,7 +46,7 @@
       - node
       - pandoc
       - heroku/brew/heroku
-      - powerlevel9kromkatv/powerlevel10k/powerlevel10k
+      - romkatv/powerlevel10k/powerlevel10k
       - php
       - prettyping
       - python
