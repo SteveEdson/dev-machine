@@ -88,7 +88,6 @@
     - "DEFAULT_USER=steve"
     - "export NVM_AUTO_USE=true"
     - "autoload -Uz compinit && compinit"
-    - "export ZSH_THEME=\"minimal\""
     - "export EDITOR=nano"
     - "export PATH=$PATH:~/.composer/vendor/bin"
     - 'export PATH="$PATH:\$(yarn global bin)"'
@@ -103,10 +102,11 @@
     line: "ZSH_THEME=\"agnoster\""
     state: absent
 
-- name: Make sure PIP3 is installed
-  easy_install: name=pip3 state=present
-  # become: yes
-  ignore_errors: yes
+- name: ZSH Cleanup
+  lineinfile:
+    dest: ~/.zshrc
+    line: "ZSH_THEME=\"minimal\""
+    state: absent
 
 - name: Install PIP 3 packages
   pip:
