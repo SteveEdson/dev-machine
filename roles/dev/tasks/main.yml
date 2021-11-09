@@ -6,9 +6,10 @@
   when: "ansible_os_family == 'Windows'"
 
 - name: Create ack config file if it doesn't exist
-  file:
-    path: ~/.ackrc
-    state: touch
+  copy:
+    content: ""
+    dest: ~/.ackrc
+    force: no
 
 - name: Ack config file
   lineinfile: dest=~/.ackrc line='{{ item }}'
