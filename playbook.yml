@@ -8,6 +8,5 @@
     - dev
     - mac
     - gem
-    # - code
     - npm
   user: steveedson
