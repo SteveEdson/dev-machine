@@ -55,7 +55,7 @@
       bug: brew upgrade
       art: php artisan
       git: hub
-      ls: exa
+      ls: exa --icons
       copy_ssh: "cat ~/.ssh/id_rsa.pub | pbcopy"
       nah: "git reset --hard;git clean -df"
       migrate: "php artisan migrate"
